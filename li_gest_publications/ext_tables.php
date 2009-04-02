@@ -1,5 +1,8 @@
 <?php
 if (!defined ('TYPO3_MODE')) 	die ('Access denied.');
+
+// Ajout de champs dans le formulaire de la table tx_ligestmembrelabo_MembreDuLabo
+
 $tempColumns = Array (
 	"Afficher_auteur" => Array (		
 		"exclude" => 1,		
@@ -330,7 +333,8 @@ $TCA["tx_ligestpublications_Auteur"] = array (
 
 
 t3lib_div::loadTCA('tt_content');
-$TCA['tt_content']['types']['list']['subtypes_excludelist'][$_EXTKEY.'_pi1']='layout,select_key';
+
+$TCA['tt_content']['types']['list']['subtypes_excludelist'][$_EXTKEY.'_pi1']='layout,select_key,pages';
 
 // add FlexForm field to tt_content
 $TCA['tt_content']['types']['list']['subtypes_addlist'][$_EXTKEY.'_pi1']='pi_flexform';
@@ -339,9 +343,12 @@ $TCA['tt_content']['types']['list']['subtypes_addlist'][$_EXTKEY.'_pi1']='pi_fle
 t3lib_extMgm::addPlugin(array('LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.list_type_pi1', $_EXTKEY.'_pi1'),'list_type');
 
 
+t3lib_extMgm::addStaticFile($_EXTKEY,"pi1/static/","Managing Publication");
+
 // switch the XML files for the FlexForm
 t3lib_extMgm::addPiFlexFormValue($_EXTKEY.'_pi1', 'FILE:EXT:li_gest_publications/flexform_ds_pi1.xml');
 
 
-t3lib_extMgm::addStaticFile($_EXTKEY,"pi1/static/","Managing Publication");
+
+if (TYPO3_MODE=="BE")	$TBE_MODULES_EXT["xMOD_db_new_content_el"]["addElClasses"]["tx_ligestpublications_pi1_wizicon"] = t3lib_extMgm::extPath($_EXTKEY).'pi1/class.tx_ligestpublications_pi1_wizicon.php';
 ?>
