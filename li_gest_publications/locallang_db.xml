@@ -6,8 +6,8 @@
 	</meta>
 	<data type="array">
 		<languageKey index="default" type="array">
-			<label index="tx_ligestmembrelabo_MembreDuLabo.tx_ligestpublications_afficher_auteur">Display name of the author names of the member</label>
-			<label index="tx_ligestmembrelabo_MembreDuLabo.tx_ligestpublications_afficher_publication">Display publications</label>
+			<label index="tx_ligestmembrelabo_MembreDuLabo.Afficher_auteur">Display name of the author names of the member</label>
+			<label index="tx_ligestmembrelabo_MembreDuLabo.Afficher_publications">Display publications</label>
 			<label index="tx_ligestpublications_Publication">Publication</label>
 			<label index="tx_ligestpublications_Publication.typepublication">Publication type</label>
 			<label index="tx_ligestpublications_Publication.estediteur.I.0">No</label>
@@ -44,9 +44,12 @@
 			<label index="tx_ligestpublications_Publication.datedebut">Start date</label>
 			<label index="tx_ligestpublications_Publication.datefin">End date</label>
 			<label index="tx_ligestpublications_Publication.villeetpays">Town and Country</label>
-			<label index="tx_ligestpublications_Theme_Publication ">To link a publication to a theme</label>
-			<label index="tx_ligestpublications_Theme_Publication .idpublication">idPublication</label>
-			<label index="tx_ligestpublications_Theme_Publication .idtheme">idTheme</label>
+			<label index="tx_ligestpublications_Publication.Afficher_Themes">Thèmes de la publication. Attention! Pensez à recharger la page après tout ajout ou modification d'un enregistrement</label>
+			<label index="tx_ligestpublications_Publication.Afficher_Equipes">Equipes lièes à cette publication. Attention! Pensez à recharger la page après tout ajout ou modification d'un enregistrement</label>
+			<label index="tx_ligestpublications_Publication.Afficher_Auteurs">Auteurs de la publication. Attention! Pensez à recharger la page après tout ajout ou modification d'un enregistrement</label>
+			<label index="tx_ligestpublications_Theme_Publication">To link a publication to a theme</label>
+			<label index="tx_ligestpublications_Theme_Publication.idpublication">idPublication</label>
+			<label index="tx_ligestpublications_Theme_Publication.idtheme">idTheme</label>
 			<label index="tx_ligestpublications_Theme">Theme</label>
 			<label index="tx_ligestpublications_Theme.libelle">Label</label>
 			<label index="tx_ligestpublications_Appartenir">To link a publication to an team</label>
@@ -69,8 +72,8 @@
 			<label index="tt_content.list_type_pi1">Managing Publication</label>
 		</languageKey>
 		<languageKey index="fr" type="array">
-			<label index="tx_ligestmembrelabo_MembreDuLabo.tx_ligestpublications_afficher_auteur">Afficher le nom des différents noms d'auteurs du membre</label>
-			<label index="tx_ligestmembrelabo_MembreDuLabo.tx_ligestpublications_afficher_publication">Afficher les publications</label>
+			<label index="tx_ligestmembrelabo_MembreDuLabo.Afficher_auteur">Afficher le nom des différents noms d'auteurs du membre</label>
+			<label index="tx_ligestmembrelabo_MembreDuLabo.Afficher_publications">Afficher les publications</label>
 			<label index="tx_ligestpublications_Publication">Publication</label>
 			<label index="tx_ligestpublications_Publication.typepublication">Type de publication</label>
 			<label index="tx_ligestpublications_Publication.estediteur.I.0">Non</label>
@@ -107,9 +110,12 @@
 			<label index="tx_ligestpublications_Publication.datedebut">Date de début</label>
 			<label index="tx_ligestpublications_Publication.datefin">Date de fin</label>
 			<label index="tx_ligestpublications_Publication.villeetpays">Ville et Pays</label>
-			<label index="tx_ligestpublications_Theme_Publication ">Lier une publication à un thème</label>
-			<label index="tx_ligestpublications_Theme_Publication .idpublication">idPublication</label>
-			<label index="tx_ligestpublications_Theme_Publication .idtheme">idTheme</label>
+			<label index="tx_ligestpublications_Publication.Afficher_Themes">Thèmes de la publication. Attention! Pensez à recharger la page après tout ajout ou modification d'un enregistrement.</label>
+			<label index="tx_ligestpublications_Publication.Afficher_Equipes">Equipes lièes à cette publication. Attention! Pensez à recharger la page après tout ajout ou modification d'un enregistrement.</label>
+			<label index="tx_ligestpublications_Publication.Afficher_Auteurs">Auteurs de la publication. Attention! Pensez à recharger la page après tout ajout ou modification d'un enregistrement.</label>
+			<label index="tx_ligestpublications_Theme_Publication">Lier une publication à un thème</label>
+			<label index="tx_ligestpublications_Theme_Publication.idpublication">idPublication</label>
+			<label index="tx_ligestpublications_Theme_Publication.idtheme">idTheme</label>
 			<label index="tx_ligestpublications_Theme">Theme</label>
 			<label index="tx_ligestpublications_Theme.libelle">Libelle</label>
 			<label index="tx_ligestpublications_Appartenir">Lier une publication à une équipe</label>

@@ -2,8 +2,7 @@
 # Table structure for table 'tx_ligestmembrelabo_MembreDuLabo'
 #
 CREATE TABLE tx_ligestmembrelabo_MembreDuLabo (
-	tx_ligestpublications_afficher_auteur int(11) DEFAULT '0' NOT NULL,
-	tx_ligestpublications_afficher_publication int(11) DEFAULT '0' NOT NULL
+	Afficher_auteur int(11) DEFAULT '0' NOT NULL,
 );
 
 
@@ -19,28 +18,34 @@ CREATE TABLE tx_ligestpublications_Publication (
 	cruser_id int(11) DEFAULT '0' NOT NULL,
 	deleted tinyint(4) DEFAULT '0' NOT NULL,
 	hidden tinyint(4) DEFAULT '0' NOT NULL,
-	typepublication int(11) DEFAULT '0' NOT NULL,
-	estediteur char(1) DEFAULT '' NOT NULL,
-	estinternationale char(1) DEFAULT '' NOT NULL,
-	estinvite char(1) DEFAULT '' NOT NULL,
-	estunchapitre char(1) DEFAULT '' NOT NULL,
-	estdelavulgarisation char(1) DEFAULT '' NOT NULL,
-	titre varchar(255) DEFAULT '' NOT NULL,
-	annee int(11) DEFAULT '0' NOT NULL,
-	pages varchar(255) DEFAULT '' NOT NULL,
-	estparu char(1) DEFAULT '' NOT NULL,
-	tauxselection varchar(255) DEFAULT '' NOT NULL,
-	mediadepublication varchar(255) DEFAULT '' NOT NULL,
-	isbn varchar(255) DEFAULT '' NOT NULL,
-	notes text NOT NULL,
-	publisherorschool varchar(255) DEFAULT '' NOT NULL,
-	volume varchar(255) DEFAULT '' NOT NULL,
-	serie varchar(255) DEFAULT '' NOT NULL,
-	numero int(11) DEFAULT '0' NOT NULL,
-	edition varchar(255) DEFAULT '' NOT NULL,
-	datedebut int(11) DEFAULT '0' NOT NULL,
-	datefin int(11) DEFAULT '0' NOT NULL,
-	villeetpays varchar(255) DEFAULT '' NOT NULL,
+	sys_language_uid int(11) DEFAULT '0' NOT NULL,
+	l18n_parent int(11) DEFAULT '0' NOT NULL,
+	l18n_diffsource mediumblob NOT NULL,
+	TypePublication int(11) DEFAULT '0' NOT NULL,
+	EstEditeur char(1) DEFAULT '' NOT NULL,
+	EstInternationale char(1) DEFAULT '' NOT NULL,
+	EstInvite char(1) DEFAULT '' NOT NULL,
+	EstUnChapitre char(1) DEFAULT '' NOT NULL,
+	EstDeLaVulgarisation char(1) DEFAULT '' NOT NULL,
+	Titre varchar(255) DEFAULT '' NOT NULL,
+	Annee int(11) DEFAULT '0' NOT NULL,
+	Pages varchar(255) DEFAULT '' NOT NULL,
+	EstParu char(1) DEFAULT '' NOT NULL,
+	TauxSelection varchar(255) DEFAULT '' NOT NULL,
+	MediaDePublication varchar(255) DEFAULT '' NOT NULL,
+	ISBN varchar(255) DEFAULT '' NOT NULL,
+	Notes text NOT NULL,
+	PublisherOrSchool varchar(255) DEFAULT '' NOT NULL,
+	Volume varchar(255) DEFAULT '' NOT NULL,
+	Serie varchar(255) DEFAULT '' NOT NULL,
+	Numero varchar(255) DEFAULT '0' NOT NULL,
+	Edition varchar(255) DEFAULT '' NOT NULL,
+	DateDebut date DEFAULT '0000-00-00' NOT NULL,
+	DateFin date DEFAULT '0000-00-00' NOT NULL,
+	VilleEtPays varchar(255) DEFAULT '' NOT NULL,
+	Afficher_Themes int(11) DEFAULT '0' NOT NULL,
+	Afficher_Equipes int(11) DEFAULT '0' NOT NULL,
+	Afficher_Auteurs int(11) DEFAULT '0' NOT NULL,
 	
 	PRIMARY KEY (uid),
 	KEY parent (pid)
@@ -49,9 +54,9 @@ CREATE TABLE tx_ligestpublications_Publication (
 
 
 #
-# Table structure for table 'tx_ligestpublications_Theme_Publication '
+# Table structure for table 'tx_ligestpublications_Theme_Publication'
 #
-CREATE TABLE tx_ligestpublications_Theme_Publication  (
+CREATE TABLE tx_ligestpublications_Theme_Publication (
 	uid int(11) NOT NULL auto_increment,
 	pid int(11) DEFAULT '0' NOT NULL,
 	tstamp int(11) DEFAULT '0' NOT NULL,
@@ -59,8 +64,8 @@ CREATE TABLE tx_ligestpublications_Theme_Publication  (
 	cruser_id int(11) DEFAULT '0' NOT NULL,
 	deleted tinyint(4) DEFAULT '0' NOT NULL,
 	hidden tinyint(4) DEFAULT '0' NOT NULL,
-	idpublication int(11) DEFAULT '0' NOT NULL,
-	idtheme int(11) DEFAULT '0' NOT NULL,
+	idPublication int(11) DEFAULT '0' NOT NULL,
+	idTheme int(11) DEFAULT '0' NOT NULL,
 	
 	PRIMARY KEY (uid),
 	KEY parent (pid)
@@ -82,7 +87,7 @@ CREATE TABLE tx_ligestpublications_Theme (
 	l18n_diffsource mediumblob NOT NULL,
 	deleted tinyint(4) DEFAULT '0' NOT NULL,
 	hidden tinyint(4) DEFAULT '0' NOT NULL,
-	libelle varchar(255) DEFAULT '' NOT NULL,
+	Libelle varchar(255) DEFAULT '' NOT NULL,
 	
 	PRIMARY KEY (uid),
 	KEY parent (pid)
@@ -101,8 +106,8 @@ CREATE TABLE tx_ligestpublications_Appartenir (
 	cruser_id int(11) DEFAULT '0' NOT NULL,
 	deleted tinyint(4) DEFAULT '0' NOT NULL,
 	hidden tinyint(4) DEFAULT '0' NOT NULL,
-	idpublication int(11) DEFAULT '0' NOT NULL,
-	idequipe int(11) DEFAULT '0' NOT NULL,
+	idPublication int(11) DEFAULT '0' NOT NULL,
+	idEquipe int(11) DEFAULT '0' NOT NULL,
 	
 	PRIMARY KEY (uid),
 	KEY parent (pid)
@@ -121,8 +126,8 @@ CREATE TABLE tx_ligestpublications_Fichier (
 	cruser_id int(11) DEFAULT '0' NOT NULL,
 	deleted tinyint(4) DEFAULT '0' NOT NULL,
 	hidden tinyint(4) DEFAULT '0' NOT NULL,
-	idpublication int(11) DEFAULT '0' NOT NULL,
-	lienfichier varchar(255) DEFAULT '' NOT NULL,
+	idPublication int(11) DEFAULT '0' NOT NULL,
+	LienFichier varchar(255) DEFAULT '' NOT NULL,
 	
 	PRIMARY KEY (uid),
 	KEY parent (pid)
@@ -144,8 +149,8 @@ CREATE TABLE tx_ligestpublications_TypePublication (
 	l18n_diffsource mediumblob NOT NULL,
 	deleted tinyint(4) DEFAULT '0' NOT NULL,
 	hidden tinyint(4) DEFAULT '0' NOT NULL,
-	code varchar(5) DEFAULT '' NOT NULL,
-	libelle varchar(255) DEFAULT '' NOT NULL,
+	Code varchar(5) DEFAULT '' NOT NULL,
+	Libelle varchar(255) DEFAULT '' NOT NULL,
 	
 	PRIMARY KEY (uid),
 	KEY parent (pid)
@@ -164,9 +169,10 @@ CREATE TABLE tx_ligestpublications_Publication_Auteur (
 	cruser_id int(11) DEFAULT '0' NOT NULL,
 	deleted tinyint(4) DEFAULT '0' NOT NULL,
 	hidden tinyint(4) DEFAULT '0' NOT NULL,
-	idpublication int(11) DEFAULT '0' NOT NULL,
-	ordre int(11) DEFAULT '0' NOT NULL,
-	idauteur int(11) DEFAULT '0' NOT NULL,
+	idPublication int(11) DEFAULT '0' NOT NULL,
+	idAuteur int(11) DEFAULT '0' NOT NULL,
+	Ordre int(11) DEFAULT '0' NOT NULL,
+	
 	
 	PRIMARY KEY (uid),
 	KEY parent (pid)
@@ -185,9 +191,10 @@ CREATE TABLE tx_ligestpublications_Auteur (
 	cruser_id int(11) DEFAULT '0' NOT NULL,
 	deleted tinyint(4) DEFAULT '0' NOT NULL,
 	hidden tinyint(4) DEFAULT '0' NOT NULL,
-	nom varchar(255) DEFAULT '' NOT NULL,
-	prenom varchar(255) DEFAULT '' NOT NULL,
-	idmembrelabo int(11) DEFAULT '0' NOT NULL,
+	Nom varchar(255) DEFAULT '' NOT NULL,
+	Prenom varchar(255) DEFAULT '' NOT NULL,
+	idMembreLabo int(11) DEFAULT '0' NOT NULL,
+	Afficher_publication int(11) DEFAULT '0' NOT NULL,
 	
 	PRIMARY KEY (uid),
 	KEY parent (pid)
