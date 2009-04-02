@@ -11,7 +11,7 @@
 ########################################################################
 
 $EM_CONF[$_EXTKEY] = array(
-	'title' => 'Managing publications',
+	'title' => 'Managing Publications',
 	'description' => 'Insert a list of publications',
 	'category' => 'plugin',
 	'author' => 'Bruno Gallet',
