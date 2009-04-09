@@ -46,6 +46,7 @@ CREATE TABLE tx_ligestpublications_Publication (
 	Afficher_Themes int(11) DEFAULT '0' NOT NULL,
 	Afficher_Equipes int(11) DEFAULT '0' NOT NULL,
 	Afficher_Auteurs int(11) DEFAULT '0' NOT NULL,
+	Afficher_Fichiers int(11) DEFAULT '0' NOT NULL,
 	
 	PRIMARY KEY (uid),
 	KEY parent (pid)
@@ -127,6 +128,7 @@ CREATE TABLE tx_ligestpublications_Fichier (
 	deleted tinyint(4) DEFAULT '0' NOT NULL,
 	hidden tinyint(4) DEFAULT '0' NOT NULL,
 	idPublication int(11) DEFAULT '0' NOT NULL,
+	NomFichier varchar(255) DEFAULT '' NOT NULL,
 	LienFichier varchar(255) DEFAULT '' NOT NULL,
 	
 	PRIMARY KEY (uid),

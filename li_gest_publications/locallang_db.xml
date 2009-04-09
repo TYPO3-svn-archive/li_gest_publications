@@ -113,6 +113,7 @@
 			<label index="tx_ligestpublications_Publication.Afficher_Themes">Thèmes de la publication. Attention! Pensez à recharger la page après tout ajout ou modification d'un enregistrement.</label>
 			<label index="tx_ligestpublications_Publication.Afficher_Equipes">Equipes lièes à cette publication. Attention! Pensez à recharger la page après tout ajout ou modification d'un enregistrement.</label>
 			<label index="tx_ligestpublications_Publication.Afficher_Auteurs">Auteurs de la publication. Attention! Pensez à recharger la page après tout ajout ou modification d'un enregistrement.</label>
+			<label index="tx_ligestpublications_Publication.Afficher_Fichiers">Fichiers liés à la publication. Attention! Pensez à recharger la page après tout ajout ou modification d'un enregistrement.</label>
 			<label index="tx_ligestpublications_Theme_Publication">Lier une publication à un thème</label>
 			<label index="tx_ligestpublications_Theme_Publication.idpublication">idPublication</label>
 			<label index="tx_ligestpublications_Theme_Publication.idtheme">idTheme</label>
@@ -123,6 +124,7 @@
 			<label index="tx_ligestpublications_Appartenir.idequipe">idEquipe</label>
 			<label index="tx_ligestpublications_Fichier">Fichier</label>
 			<label index="tx_ligestpublications_Fichier.idpublication">idPublication</label>
+			<label index="tx_ligestpublications_Fichier.nomfichier">Nom du fichier</label>
 			<label index="tx_ligestpublications_Fichier.lienfichier">Lien du fichier</label>
 			<label index="tx_ligestpublications_TypePublication">Type de Publication</label>
 			<label index="tx_ligestpublications_TypePublication.code">Code</label>
@@ -136,6 +138,54 @@
 			<label index="tx_ligestpublications_Auteur.prenom">Prénom</label>
 			<label index="tx_ligestpublications_Auteur.idmembrelabo">idMembreLabo</label>
 			<label index="tt_content.list_type_pi1">Gestion des publications</label>
+			<label index="tt_content.pi_flexform.sheet_general">Données</label>
+			<label index="tt_content.pi_flexform.pid">Données</label>
+			<label index="tt_content.pi_flexform.sheet_filtres">Filtres</label>
+			<label index="tt_content.pi_flexform.equipe">Sélection par équipes</label>
+			<label index="tt_content.pi_flexform.membres">Sélection par membres</label>
+			<label index="tt_content.pi_flexform.auteurs">Sélection par auteurs</label>
+			<label index="tt_content.pi_flexform.themes">Sélection par thèmes</label>
+			<label index="tt_content.pi_flexform.TypePublication">Sélection par types de publication</label>
+			<label index="tt_content.pi_flexform.datepublication">Sélection selon la date de publication</label>
+			<label index="tt_content.pi_flexform.typedate.0">En cours</label>
+			<label index="tt_content.pi_flexform.typedate.1">Terminées</label>
+			<label index="tt_content.pi_flexform.typedate.2">Toutes</label>
+			<label index="tt_content.pi_flexform.limitationdate">Afficher les publications à partir de: (année au format aaaa)</label>
+			<label index="tt_content.pi_flexform.internationale">Publication internationale?</label>
+			<label index="tt_content.pi_flexform.internationale.0">Est internationale</label>
+			<label index="tt_content.pi_flexform.internationale.1">N'est pas internationale</label>
+			<label index="tt_content.pi_flexform.internationale.2">Peu importe</label>
+			<label index="tt_content.pi_flexform.typeconference">Conférence normale ou invité d'une conférence?</label>
+			<label index="tt_content.pi_flexform.typeconference.0">Conférence normale</label>
+			<label index="tt_content.pi_flexform.typeconference.1">Invité</label>
+			<label index="tt_content.pi_flexform.typeconference.2">Peu importe</label>
+			<label index="tt_content.pi_flexform.chapitre">Les publications sont des chapitres de livre?</label>
+			<label index="tt_content.pi_flexform.chapitre.0">Oui</label>
+			<label index="tt_content.pi_flexform.chapitre.1">Non</label>
+			<label index="tt_content.pi_flexform.chapitre.2">Peu importe</label>
+			<label index="tt_content.pi_flexform.vulgarisation">Les publication sont des vulgarisations?</label>
+			<label index="tt_content.pi_flexform.vulgarisation.0">Oui</label>
+			<label index="tt_content.pi_flexform.vulgarisation.1">Non</label>
+			<label index="tt_content.pi_flexform.vulgarisation.2">Peu importe</label>
+			<label index="tt_content.pi_flexform.parution">Les publications sont parues?</label>
+			<label index="tt_content.pi_flexform.parution.0">Oui</label>
+			<label index="tt_content.pi_flexform.parution.1">Non</label>
+			<label index="tt_content.pi_flexform.parution.2">Peu importe</label>
+			<label index="tt_content.pi_flexform.anneeparution">Année de parution</label>
+			<label index="tt_content.pi_flexform.sheet_affichage">Affichage</label>
+			<label index="tt_content.pi_flexform.sheet_separateurs">Séparateurs</label>
+			
+			<label index="tt_content.pi_flexform.sheet_request">Requête</label>
+			<label index="tt_content.pi_flexform.requete">Utiliser une requête pour afficher les publications</label>
+			<label index="tt_content.pi_flexform.select">select</label>
+			<label index="tt_content.pi_flexform.from_table">from_table</label>
+			<label index="tt_content.pi_flexform.where_clause">where_clause</label>
+			<label index="tt_content.pi_flexform.groupBy">groupBy</label>
+			<label index="tt_content.pi_flexform.orderBy">orderBy</label>
+			<label index="tt_content.pi_flexform.limit">limit</label>
+			<label index="tt_content.pi_flexform.tryMemcached">tryMemcached</label>
+			<label index="tt_content.pi_flexform.sheet_template">Gabarit</label>
+			<label index="tt_content.pi_flexform.template_file_ref">Référence vers le fichier du gabarit HTML</label>
 		</languageKey>
 	</data>
 </T3locallang>

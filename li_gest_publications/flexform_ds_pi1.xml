@@ -9,14 +9,14 @@
 		<sDEF>
 			<ROOT>
 				<TCEforms>
-					<sheetTitle>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.sheet_general</sheetTitle>
+					<sheetTitle>LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.sheet_general</sheetTitle>
 				</TCEforms>
 				<type>array</type>
 				<el>
 					<!-- Zone de sélection de données  -->
 					<pid>
 						<TCEforms>
-							<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.pid</label>
+							<label>LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.pid</label>
 							<config>
 								<type>group</type>
 								<internal_type>db</internal_type>
@@ -31,56 +31,22 @@
 				</el>
 		    </ROOT>
 		</sDEF>
-		<!-- Onglet filtres: permet de sélectionnés les membres à afficher suivant différents paramêtres  -->
+		<!-- Onglet filtres: permet de sélectionnés les publications à afficher suivant différents paramêtres  -->
 		<filtres>
 		    <ROOT>
 				<TCEforms>
-					<sheetTitle>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.sheet_filtres</sheetTitle>
+					<sheetTitle>LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.sheet_filtres</sheetTitle>
 				</TCEforms>
 				<type>array</type>
 				<el>
-					<!-- Regoupement des filtres concernant le labo  -->
-					<groupelabo>
-						<type>array</type>
-						<el>
-							<!-- Filtrage selon les dates de présence au labo  -->
-							<datelabo>
-								<TCEforms>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.datelabo</label>
-										<config>
-											<type>select</type>
-												<items type="array">
-													<numIndex index="0" type="array">
-														<numIndex index="0">LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.typedate.0</numIndex>
-														<numIndex index="1">Actuels</numIndex>
-													</numIndex>
-													<numIndex index="1" type="array">
-														<numIndex index="0">LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.typedate.1</numIndex>
-														<numIndex index="1">Anciens</numIndex>
-													</numIndex>
-													<numIndex index="2" type="array">
-														<numIndex index="0">LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.typedate.2</numIndex>
-														<numIndex index="1">Tous</numIndex>
-													</numIndex>
-										         </items>
-										         <minitems>0</minitems>
-										         <maxitems>1</maxitems>
-												 <default>Actuels</default>
-										         <size>1</size>
-										</config>
-								</TCEforms>
-							</datelabo>
-						</el>
-					</groupelabo>
-
 					<!-- Regoupement des filtres concernant les équipes  -->
 					<groupeequipe>
 						<type>array</type>
 						<el>
-							<!-- Filtrage des membres selon les équipes sélectionnées  -->
+							<!-- Filtrage des publications selon les équipes sélectionnées  -->
 							<equipe>
 								<TCEforms>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.equipe</label>
+									<label>LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.equipe</label>
 										<config>
 											<type>select</type>
 											<foreign_table>tx_ligestmembrelabo_Equipe</foreign_table>
@@ -91,285 +57,297 @@
 										</config>
 								</TCEforms>
 							</equipe>
-							<!-- Filtrage selon les dates de présences dans les équipes sélectionnées  -->
-							<dateequipe>
-								<TCEforms>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.dateequipe</label>
-										<config>
-											<type>select</type>
-												<items type="array">
-													<numIndex index="0" type="array">
-														<numIndex index="0">LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.typedate.0</numIndex>
-														<numIndex index="1">Actuels</numIndex>
-													</numIndex>
-													<numIndex index="1" type="array">
-														<numIndex index="0">LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.typedate.1</numIndex>
-														<numIndex index="1">Anciens</numIndex>
-													</numIndex>
-													<numIndex index="2" type="array">
-														<numIndex index="0">LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.typedate.2</numIndex>
-														<numIndex index="1">Tous</numIndex>
-													</numIndex>
-										         </items>
-										         <minitems>0</minitems>
-										         <maxitems>1</maxitems>
-												 <default>Tous</default>
-										         <size>1</size>
-										</config>
-								</TCEforms>
-							</dateequipe>
 						</el>
 					</groupeequipe>
-
-					<!-- Regoupement des filtres concernant les postes  -->
-					<groupeposte>
-						<type>array</type>
-						<el>
-							<!-- Filtrage des membres selon les postes sélectionnées  -->
-							<typeposte>
-								<TCEforms>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.typeposte</label>
-										<config>
-											<type>select</type>
-											<foreign_table>tx_ligestmembrelabo_TypePosteWeb</foreign_table>
-											<foreign_table_where>AND tx_ligestmembrelabo_TypePosteWeb.sys_language_uid=0 ORDER BY tx_ligestmembrelabo_TypePosteWeb.LibelleWeb</foreign_table_where>
-											<size>10</size>
-											<minitems>0</minitems>
-											<maxitems>99</maxitems>
-										</config>
-								</TCEforms>
-							</typeposte>
-							<!-- Filtrage selon les dates de présences aux postes sélectionnées  -->
-							<datetypeposte>
-								<TCEforms>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.typedateposte</label>
-										<config>
-											<type>select</type>
-												<items type="array">
-													<numIndex index="0" type="array">
-														<numIndex index="0">LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.typedate.0</numIndex>
-														<numIndex index="1">Actuels</numIndex>
-													</numIndex>
-													<numIndex index="1" type="array">
-														<numIndex index="0">LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.typedate.1</numIndex>
-														<numIndex index="1">Anciens</numIndex>
-													</numIndex>
-													<numIndex index="2" type="array">
-														<numIndex index="0">LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.typedate.2</numIndex>
-														<numIndex index="1">Tous</numIndex>
-													</numIndex>
-										         </items>
-										         <minitems>0</minitems>
-										         <maxitems>1</maxitems>
-												 <default>Tous</default>
-										         <size>1</size>
-										</config>
-								</TCEforms>
-							</datetypeposte>
-						</el>
-					</groupeposte>
-
-					<!-- Regoupement des filtres concernant les catégories  -->
-					<groupecategorie>
-						<type>array</type>
-						<el>
-							<!-- Filtrage des membres selon les catégories sélectionnées  -->
-							<categorie>
-								<TCEforms>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.categorie</label>
-										<config>
-											<type>select</type>
-											<foreign_table>tx_ligestmembrelabo_Categorie</foreign_table>
-											<foreign_table_where>AND tx_ligestmembrelabo_Categorie.sys_language_uid=0 ORDER BY tx_ligestmembrelabo_Categorie.Libelle</foreign_table_where>
-											<size>10</size>
-											<minitems>0</minitems>
-											<maxitems>99</maxitems>
-										</config>
-								</TCEforms>
-							</categorie>
-							<!-- Filtrage selon les dates de présences aux catégories sélectionnées  -->
-							<datetypecategorie>
-								<TCEforms>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.typedatecategorie</label>
-										<config>
-											<type>select</type>
-												<items type="array">
-													<numIndex index="0" type="array">
-														<numIndex index="0">LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.typedate.0</numIndex>
-														<numIndex index="1">Actuels</numIndex>
-													</numIndex>
-													<numIndex index="1" type="array">
-														<numIndex index="0">LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.typedate.1</numIndex>
-														<numIndex index="1">Anciens</numIndex>
-													</numIndex>
-													<numIndex index="2" type="array">
-														<numIndex index="0">LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.typedate.2</numIndex>
-														<numIndex index="1">Tous</numIndex>
-													</numIndex>
-										         </items>
-										         <minitems>0</minitems>
-										         <maxitems>1</maxitems>
-												 <default>Tous</default>
-										         <size>1</size>
-										</config>
-								</TCEforms>
-							</datetypecategorie>
-						</el>
-					</groupecategorie>
-
-					<!-- Regoupement des filtres concernant les catégories  -->
-					<groupestructure>
-						<type>array</type>
-						<el>
-							<!-- Filtrage des membres selon les structures sélectionnées  -->
-							<structure>
-								<TCEforms>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.structure</label>
-										<config>
-											<type>select</type>
-											<foreign_table>tx_ligestmembrelabo_Structure</foreign_table>
-											<foreign_table_where>ORDER BY tx_ligestmembrelabo_Structure.Nom</foreign_table_where>
-											<size>10</size>
-											<minitems>0</minitems>
-											<maxitems>99</maxitems>
-										</config>
-								</TCEforms>
-							</structure>
-							<!-- Filtrage selon les dates de présences dans une des structures sélectionnées  -->
-							<datetypestructure>
-								<TCEforms>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.typedatestructure</label>
-										<config>
-											<type>select</type>
-												<items type="array">
-													<numIndex index="0" type="array">
-														<numIndex index="0">LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.typedate.0</numIndex>
-														<numIndex index="1">Actuels</numIndex>
-													</numIndex>
-													<numIndex index="1" type="array">
-														<numIndex index="0">LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.typedate.1</numIndex>
-														<numIndex index="1">Anciens</numIndex>
-													</numIndex>
-													<numIndex index="2" type="array">
-														<numIndex index="0">LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.typedate.2</numIndex>
-														<numIndex index="1">Tous</numIndex>
-													</numIndex>
-										         </items>
-										         <minitems>0</minitems>
-										         <maxitems>1</maxitems>
-												 <default>Tous</default>
-										         <size>1</size>
-										</config>
-								</TCEforms>
-							</datetypestructure>
-						</el>
-					</groupestructure>
 					
-					<!-- Regoupement des filtres concernant les fonctions  -->
-					<groupefonction>
+					<!-- Regoupement des filtres concernant les membres -->
+					<groupemembres>
 						<type>array</type>
 						<el>
-							<!-- Filtrage des membres selon les fonctions sélectionnées  -->
-							<fonction>
+							<!-- Filtrage des publications selon les membres sélectionnées  -->
+							<membres>
 								<TCEforms>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.fonction</label>
+									<label>LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.membres</label>
 										<config>
 											<type>select</type>
-											<foreign_table>tx_ligestmembrelabo_Fonction</foreign_table>
-											<foreign_table_where>AND tx_ligestmembrelabo_Fonction.sys_language_uid=0 ORDER BY tx_ligestmembrelabo_Fonction.Libelle</foreign_table_where>
+											<foreign_table>tx_ligestmembrelabo_MembreDuLabo</foreign_table>
+											<foreign_table_where>ORDER BY tx_ligestmembrelabo_MembreDuLabo.NomDUsage, tx_ligestmembrelabo_MembreDuLabo.Prenom</foreign_table_where>
 											<size>10</size>
 											<minitems>0</minitems>
 											<maxitems>99</maxitems>
 										</config>
 								</TCEforms>
-							</fonction>
-							<!-- Filtrage selon les dates de présences dans une des fonctions sélectionnées  -->
-							<datetypefonction>
-								<TCEforms>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.typedatefonction</label>
-										<config>
-											<type>select</type>
-												<items type="array">
-													<numIndex index="0" type="array">
-														<numIndex index="0">LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.typedate.0</numIndex>
-														<numIndex index="1">Actuels</numIndex>
-													</numIndex>
-													<numIndex index="1" type="array">
-														<numIndex index="0">LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.typedate.1</numIndex>
-														<numIndex index="1">Anciens</numIndex>
-													</numIndex>
-													<numIndex index="2" type="array">
-														<numIndex index="0">LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.typedate.2</numIndex>
-														<numIndex index="1">Tous</numIndex>
-													</numIndex>
-										         </items>
-										         <minitems>0</minitems>
-										         <maxitems>1</maxitems>
-												 <default>Tous</default>
-										         <size>1</size>
-										</config>
-								</TCEforms>
-							</datetypefonction>
+							</membres>
 						</el>
-					</groupefonction>
+					</groupemembres>
 					
-					<!-- Regoupement des filtres concernant les diplomes  -->
-					<groupediplome>
+					<!-- Regoupement des filtres concernant les auteurs  -->
+					<groupeauteurs>
 						<type>array</type>
 						<el>
-							<!-- Filtrage des membres selon les diplomes sélectionnées  -->
-							<diplome>
+							<!-- Filtrage des publications selon les auteurs sélectionnées  -->
+							<auteurs>
 								<TCEforms>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.diplome</label>
+									<label>LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.auteurs</label>
 										<config>
 											<type>select</type>
-											<foreign_table>tx_ligestmembrelabo_TypeDiplome</foreign_table>
-											<foreign_table_where>AND tx_ligestmembrelabo_TypeDiplome.sys_language_uid=0 ORDER BY tx_ligestmembrelabo_TypeDiplome.Libelle</foreign_table_where>
+											<foreign_table>tx_ligestpublications_Auteur</foreign_table>
+											<foreign_table_where>ORDER BY tx_ligestpublications_Auteur.Nom, tx_ligestpublications_Auteur.Prenom</foreign_table_where>
 											<size>10</size>
 											<minitems>0</minitems>
 											<maxitems>99</maxitems>
 										</config>
 								</TCEforms>
-							</diplome>
-					</el>
-					</groupediplome>
-
-					<!-- Regoupement des filtres concernant les PEDR  -->
-					<groupepedr>
+							</auteurs>
+						</el>
+					</groupeauteurs>
+					
+					<!-- Regoupement des filtres concernant les thèmes  -->
+					<groupethemes>
 						<type>array</type>
 						<el>
-							<datepedr>
+							<!-- Filtrage des publications selon les thèmes sélectionnées  -->
+							<themes>
 								<TCEforms>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.datepedr</label>
+									<label>LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.themes</label>
+										<config>
+											<type>select</type>
+											<foreign_table>tx_ligestpublications_Theme</foreign_table>
+											<foreign_table_where>ORDER BY tx_ligestpublications_Theme.Libelle</foreign_table_where>
+											<size>10</size>
+											<minitems>0</minitems>
+											<maxitems>99</maxitems>
+										</config>
+								</TCEforms>
+							</themes>
+						</el>
+					</groupethemes>
+					
+					<!-- Regoupement des filtres concernant les thèmes  -->
+					<groupeTypesPublication>
+						<type>array</type>
+						<el>
+							<!-- Filtrage des publications selon les thèmes sélectionnées  -->
+							<typePublication>
+								<TCEforms>
+									<label>LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.TypePublication</label>
+										<config>
+											<type>select</type>
+											<foreign_table>tx_ligestpublications_TypePublication</foreign_table>
+											<foreign_table_where>ORDER BY tx_ligestpublications_TypePublication.Libelle</foreign_table_where>
+											<size>10</size>
+											<minitems>0</minitems>
+											<maxitems>99</maxitems>
+										</config>
+								</TCEforms>
+							</typePublication>
+						</el>
+					</groupeTypesPublication>
+
+					<!-- Regoupement des filtres concernant les publications  -->
+					<groupepublications>
+						<type>array</type>
+						<el>
+							<!-- Filtrage selon les dates de publications  -->
+							<datepublication>
+								<TCEforms>
+									<label>LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.datepublication</label>
 										<config>
 											<type>select</type>
 												<items type="array">
 													<numIndex index="0" type="array">
-														<numIndex index="0">LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.typedate.PEDR.0</numIndex>
-														<numIndex index="1">Actuels</numIndex>
+														<numIndex index="0">LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.typedate.0</numIndex>
+														<numIndex index="1">En Cours</numIndex>
 													</numIndex>
 													<numIndex index="1" type="array">
-														<numIndex index="0">LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.typedate.PEDR.1</numIndex>
-														<numIndex index="1">Anciens</numIndex>
+														<numIndex index="0">LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.typedate.1</numIndex>
+														<numIndex index="1">Terminées</numIndex>
 													</numIndex>
 													<numIndex index="2" type="array">
-														<numIndex index="0">LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.typedate.PEDR.2</numIndex>
-														<numIndex index="1">ActuelsEtAnciens</numIndex>
-													</numIndex>
-													<numIndex index="3" type="array">
-														<numIndex index="0">LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.typedate.PEDR.3</numIndex>
-														<numIndex index="1">Tous</numIndex>
+														<numIndex index="0">LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.typedate.2</numIndex>
+														<numIndex index="1">Toutes</numIndex>
 													</numIndex>
 										         </items>
 										         <minitems>0</minitems>
 										         <maxitems>1</maxitems>
-												 <default>Tous</default>
+												 <default>Toutes</default>
 										         <size>1</size>
 										</config>
 								</TCEforms>
-							</datepedr>
+							</datepublication>
+							
+							<limitationdate>
+								<TCEforms>
+									<exclude>1</exclude>
+									<label>LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.limitationdate</label>
+									<config>
+										<type>input</type>
+						                <checkbox>0</checkbox>
+						                <default>0</default>
+										<size>10</size>
+										<eval>int</eval>
+									</config>
+								</TCEforms>
+							</limitationdate>
+							
+							<!-- Publication internationale?  -->
+							<internationale>
+								<TCEforms>
+									<label>LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.internationale</label>
+										<config>
+											<type>select</type>
+												<items type="array">
+													<numIndex index="0" type="array">
+														<numIndex index="0">LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.internationale.0</numIndex>
+														<numIndex index="1">Est internationale</numIndex>
+													</numIndex>
+													<numIndex index="1" type="array">
+														<numIndex index="0">LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.internationale.1</numIndex>
+														<numIndex index="1">N'est pas internationale</numIndex>
+													</numIndex>
+													<numIndex index="2" type="array">
+														<numIndex index="0">LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.internationale.2</numIndex>
+														<numIndex index="1">Peu importe</numIndex>
+													</numIndex>
+										         </items>
+										         <minitems>0</minitems>
+										         <maxitems>1</maxitems>
+												 <default>Peu importe</default>
+										         <size>1</size>
+										</config>
+								</TCEforms>
+							</internationale>
+
+							<!-- Publication: Conférence normale, ou invité d'une conférence?  -->
+							<typeconference>
+								<TCEforms>
+									<label>LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.typeconference</label>
+										<config>
+											<type>select</type>
+												<items type="array">
+													<numIndex index="0" type="array">
+														<numIndex index="0">LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.typeconference.0</numIndex>
+														<numIndex index="1">Conférence normale</numIndex>
+													</numIndex>
+													<numIndex index="1" type="array">
+														<numIndex index="0">LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.typeconference.1</numIndex>
+														<numIndex index="1">Invité</numIndex>
+													</numIndex>
+													<numIndex index="2" type="array">
+														<numIndex index="0">LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.typeconference.2</numIndex>
+														<numIndex index="1">Peu importe</numIndex>
+													</numIndex>
+										         </items>
+										         <minitems>0</minitems>
+										         <maxitems>1</maxitems>
+												 <default>Peu importe</default>
+										         <size>1</size>
+										</config>
+								</TCEforms>
+							</typeconference>
+
+							<!-- Publication: Chapitre d'un livre?  -->
+							<chapitre>
+								<TCEforms>
+									<label>LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.chapitre</label>
+										<config>
+											<type>select</type>
+												<items type="array">
+													<numIndex index="0" type="array">
+														<numIndex index="0">LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.chapitre.0</numIndex>
+														<numIndex index="1">Oui</numIndex>
+													</numIndex>
+													<numIndex index="1" type="array">
+														<numIndex index="0">LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.chapitre.1</numIndex>
+														<numIndex index="1">Non</numIndex>
+													</numIndex>
+													<numIndex index="2" type="array">
+														<numIndex index="0">LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.chapitre.2</numIndex>
+														<numIndex index="1">Peu importe</numIndex>
+													</numIndex>
+										         </items>
+										         <minitems>0</minitems>
+										         <maxitems>1</maxitems>
+												 <default>Peu importe</default>
+										         <size>1</size>
+										</config>
+								</TCEforms>
+							</chapitre>
+							
+							<!-- Publication: Vulgarisation?  -->
+							<vulgarisation>
+								<TCEforms>
+									<label>LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.vulgarisation</label>
+										<config>
+											<type>select</type>
+												<items type="array">
+													<numIndex index="0" type="array">
+														<numIndex index="0">LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.vulgarisation.0</numIndex>
+														<numIndex index="1">Oui</numIndex>
+													</numIndex>
+													<numIndex index="1" type="array">
+														<numIndex index="0">LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.vulgarisation.1</numIndex>
+														<numIndex index="1">Non</numIndex>
+													</numIndex>
+													<numIndex index="2" type="array">
+														<numIndex index="0">LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.vulgarisation.2</numIndex>
+														<numIndex index="1">Peu importe</numIndex>
+													</numIndex>
+										         </items>
+										         <minitems>0</minitems>
+										         <maxitems>1</maxitems>
+												 <default>Peu importe</default>
+										         <size>1</size>
+										</config>
+								</TCEforms>
+							</vulgarisation>
+	
+							<!-- Publication: Parue?  -->
+							<parution>
+								<TCEforms>
+									<label>LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.parution</label>
+										<config>
+											<type>select</type>
+												<items type="array">
+													<numIndex index="0" type="array">
+														<numIndex index="0">LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.parution.0</numIndex>
+														<numIndex index="1">Oui</numIndex>
+													</numIndex>
+													<numIndex index="1" type="array">
+														<numIndex index="0">LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.parution.1</numIndex>
+														<numIndex index="1">Non</numIndex>
+													</numIndex>
+													<numIndex index="2" type="array">
+														<numIndex index="0">LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.parution.2</numIndex>
+														<numIndex index="1">Peu importe</numIndex>
+													</numIndex>
+										         </items>
+										         <minitems>0</minitems>
+										         <maxitems>1</maxitems>
+												 <default>Peu importe</default>
+										         <size>1</size>
+										</config>
+								</TCEforms>
+							</parution>
+
+							<!-- Année de parution  -->
+							<anneeparution>
+								<TCEforms>
+									<exclude>1</exclude>
+									<label>LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.anneeparution</label>
+									<config>
+										<type>input</type>
+						                <checkbox>0</checkbox>
+						                <default>0</default>
+										<size>10</size>
+										<eval>int</eval>
+									</config>
+								</TCEforms>
+							</anneeparution>
+
 						</el>
-					</groupepedr>
+					</groupepublications>
+
 				</el>
 		    </ROOT>
 		</filtres>
@@ -377,7 +355,7 @@
 		<affichage>
 		    <ROOT>
 				<TCEforms>
-					<sheetTitle>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.sheet_affichage</sheetTitle>
+					<sheetTitle>LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.sheet_affichage</sheetTitle>
 				</TCEforms>
 				<type>array</type>
 				<el>
@@ -420,7 +398,7 @@
 							</balisefin>
 						</el>
 					</groupepersonnaliseraffichage>
-				
+
 					<!-- Regoupement des options d'affichage concernant le format des dates  -->
 					<groupeformatdate>
 						<type>array</type>
@@ -437,7 +415,8 @@
 							</formatdate>
 						</el>
 					</groupeformatdate>
-					
+	
+
 					<!-- Regoupement des options d'affichage concernant les dates  -->
 					<groupeaffichagedate>
 						<type>array</type>
@@ -1471,14 +1450,14 @@
 		<request>
 		    <ROOT>
 				<TCEforms>
-					<sheetTitle>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.sheet_request</sheetTitle>
+					<sheetTitle>LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.sheet_request</sheetTitle>
 				</TCEforms>
 				<type>array</type>
 				<el>
 					<!-- Checkbox permettant d'utiliser une requête personnelle ou non  -->
 					<requete>
 						<TCEforms>
-							<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.requete</label>
+							<label>LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.requete</label>
 							<config>
 								<type>check</type>
 							</config>
@@ -1487,22 +1466,22 @@
 					<!-- Zone SELECT de la requête  -->
 					<select>
 						<TCEforms>
-							<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.select</label>
+							<label>LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.select</label>
 							<config>
 								<type>text</type>
 								<cols>70</cols>
-								<default>DISTINCT tx_ligestmembrelabo_MembreDuLabo.uid AS uidmembre, tx_ligestmembrelabo_MembreDuLabo.*</default>
+								<default>DISTINCT tx_ligestpublications_Publication.uid AS uidpublication, tx_ligestpublications_Publication.*</default>
 							</config>
 						</TCEforms>
 					</select>
 					<!-- Zone FROM de la requête  -->
 					<from_table>
 						<TCEforms>
-							<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.from_table</label>
+							<label>LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.from_table</label>
 							<config>
 								<type>text</type>
 								<cols>70</cols>
-								<default>tx_ligestmembrelabo_MembreDuLabo</default>
+								<default>tx_ligestpublications_Publication</default>
 							</config>
 						</TCEforms>
 					</from_table>
@@ -1510,11 +1489,11 @@
 					<where_clause>
 						<TCEforms>
 							<exclude>1</exclude>
-							<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.where_clause</label>
+							<label>LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.where_clause</label>
 							<config>
 								<type>text</type>
 								<cols>70</cols>
-								<default>tx_ligestmembrelabo_MembreDuLabo.deleted!=1</default>
+								<default>tx_ligestpublications_Publication.deleted!=1</default>
 							</config>
 						</TCEforms>
 					</where_clause>
@@ -1522,7 +1501,7 @@
 					<groupBy>
 						<TCEforms>
 							<exclude>1</exclude>
-							<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.groupBy</label>
+							<label>LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.groupBy</label>
 							<config>
 								<type>text</type>
 								<cols>70</cols>
@@ -1533,7 +1512,7 @@
 					<orderBy>
 						<TCEforms>
 							<exclude>1</exclude>
-							<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.orderBy</label>
+							<label>LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.orderBy</label>
 							<config>
 								<type>text</type>
 								<cols>70</cols>
@@ -1544,7 +1523,7 @@
 					<limit>
 						<TCEforms>
 							<exclude>1</exclude>
-							<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.limit</label>
+							<label>LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.limit</label>
 							<config>
 								<type>text</type>
 								<cols>70</cols>
@@ -1555,7 +1534,7 @@
 					<tryMemcached>
 						<TCEforms>
 							<exclude>1</exclude>
-							<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.tryMemcached</label>
+							<label>LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.tryMemcached</label>
 							<config>
 								<type>text</type>
 								<cols>70</cols>
@@ -1569,19 +1548,19 @@
 		<template>
 			<ROOT>
 				<TCEforms>
-					<sheetTitle>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.sheet_template</sheetTitle>
+					<sheetTitle>LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.sheet_template</sheetTitle>
 				</TCEforms>
 				<type>array</type>
 				<el>
 					<!-- Sélection du gabarit  -->
 					<template_file>
 						<TCEforms>
-							<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.template_file_ref</label>
+							<label>LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.template_file_ref</label>
 							<config>
 								<type>input</type>
 								<eval>trim</eval>
 								<size>50</size>
-								<default>EXT:li_gest_membre_labo/pi1/li_gest_membre_labo_template.html</default>
+								<default>EXT:li_gest_publications/pi1/li_gest_publications_template.html</default>
 								<wizards type="array">
 									<_PADDING>2</_PADDING>
 									<link type="array">

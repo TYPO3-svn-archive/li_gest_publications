@@ -105,7 +105,7 @@ $TCA["tx_ligestpublications_Publication"] = array (
 		'iconfile'          => t3lib_extMgm::extRelPath($_EXTKEY).'icon_tx_ligestpublications_Publication.gif',
 	),
 	"feInterface" => array (
-		"fe_admin_fieldList" => "hidden, sys_language_uid, l18n_parent, l18n_diffsource, TypePublication, EstEditeur, EstInternationale, EstInvite, EstUnChapitre, EstDeLaVulgarisation, Titre, Annee, Pages, EstParu, TauxSelection, MediaDePublication, ISBN, Notes, PublisherOrSchool, Volume, Serie, Numero, Edition, DateDebut, DateFin, VilleEtPays, Afficher_Themes, Afficher_Equipes, Afficher_Auteurs",
+		"fe_admin_fieldList" => "hidden, sys_language_uid, l18n_parent, l18n_diffsource, TypePublication, EstEditeur, EstInternationale, EstInvite, EstUnChapitre, EstDeLaVulgarisation, Titre, Annee, Pages, EstParu, TauxSelection, MediaDePublication, ISBN, Notes, PublisherOrSchool, Volume, Serie, Numero, Edition, DateDebut, DateFin, VilleEtPays, Afficher_Themes, Afficher_Equipes, Afficher_Auteurs, Afficher_Fichiers",
 	)
 );
 
@@ -217,8 +217,8 @@ t3lib_extMgm::addToInsertRecords('tx_ligestpublications_Fichier');
 $TCA["tx_ligestpublications_Fichier"] = array (
 	"ctrl" => array (
 		'title'     => 'LLL:EXT:li_gest_publications/locallang_db.xml:tx_ligestpublications_Fichier',		
-		'label'     => 'LienFichier, idPublication',
-		'label_alt' => 'LienFichier, idPublication',
+		'label'     => 'NomFichier, idPublication',
+		'label_alt' => 'NomFichier, idPublication',
 		'label_alt_force' => '1',
 		'tstamp'    => 'tstamp',
 		'crdate'    => 'crdate',
@@ -232,7 +232,7 @@ $TCA["tx_ligestpublications_Fichier"] = array (
 		'iconfile'          => t3lib_extMgm::extRelPath($_EXTKEY).'icon_tx_ligestpublications_Fichier.gif',
 	),
 	"feInterface" => array (
-		"fe_admin_fieldList" => "hidden, idPublication, LienFichier",
+		"fe_admin_fieldList" => "hidden, idPublication, NomFichier, LienFichier",
 	)
 );
 
