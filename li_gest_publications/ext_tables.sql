@@ -18,9 +18,9 @@ CREATE TABLE tx_ligestpublications_Publication (
 	cruser_id int(11) DEFAULT '0' NOT NULL,
 	deleted tinyint(4) DEFAULT '0' NOT NULL,
 	hidden tinyint(4) DEFAULT '0' NOT NULL,
-	sys_language_uid int(11) DEFAULT '0' NOT NULL,
+	/*sys_language_uid int(11) DEFAULT '0' NOT NULL,
 	l18n_parent int(11) DEFAULT '0' NOT NULL,
-	l18n_diffsource mediumblob NOT NULL,
+	l18n_diffsource mediumblob NOT NULL,*/
 	TypePublication int(11) DEFAULT '0' NOT NULL,
 	EstEditeur char(1) DEFAULT '' NOT NULL,
 	EstInternationale char(1) DEFAULT '' NOT NULL,
@@ -42,12 +42,13 @@ CREATE TABLE tx_ligestpublications_Publication (
 	Edition varchar(255) DEFAULT '' NOT NULL,
 	DateDebut date DEFAULT '0000-00-00' NOT NULL,
 	DateFin date DEFAULT '0000-00-00' NOT NULL,
+	Lien varchar(255) DEFAULT '' NOT NULL,
 	VilleEtPays varchar(255) DEFAULT '' NOT NULL,
 	Afficher_Themes int(11) DEFAULT '0' NOT NULL,
 	Afficher_Equipes int(11) DEFAULT '0' NOT NULL,
 	Afficher_Auteurs int(11) DEFAULT '0' NOT NULL,
 	Afficher_Fichiers int(11) DEFAULT '0' NOT NULL,
-	
+
 	PRIMARY KEY (uid),
 	KEY parent (pid)
 );
@@ -67,7 +68,7 @@ CREATE TABLE tx_ligestpublications_Theme_Publication (
 	hidden tinyint(4) DEFAULT '0' NOT NULL,
 	idPublication int(11) DEFAULT '0' NOT NULL,
 	idTheme int(11) DEFAULT '0' NOT NULL,
-	
+
 	PRIMARY KEY (uid),
 	KEY parent (pid)
 );
@@ -130,6 +131,7 @@ CREATE TABLE tx_ligestpublications_Fichier (
 	idPublication int(11) DEFAULT '0' NOT NULL,
 	NomFichier varchar(255) DEFAULT '' NOT NULL,
 	LienFichier varchar(255) DEFAULT '' NOT NULL,
+	fe_group int(11) DEFAULT '0' NOT NULL,
 	
 	PRIMARY KEY (uid),
 	KEY parent (pid)
@@ -196,7 +198,7 @@ CREATE TABLE tx_ligestpublications_Auteur (
 	Nom varchar(255) DEFAULT '' NOT NULL,
 	Prenom varchar(255) DEFAULT '' NOT NULL,
 	idMembreLabo int(11) DEFAULT '0' NOT NULL,
-	Afficher_publication int(11) DEFAULT '0' NOT NULL,
+	Afficher_Publications int(11) DEFAULT '0' NOT NULL,
 	
 	PRIMARY KEY (uid),
 	KEY parent (pid)

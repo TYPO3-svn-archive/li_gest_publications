@@ -4,7 +4,7 @@ if (!defined ('TYPO3_MODE')) 	die ('Access denied.');
 $TCA["tx_ligestpublications_Publication"] = array (
 	"ctrl" => $TCA["tx_ligestpublications_Publication"]["ctrl"],
 	"interface" => array (
-		"showRecordFieldList" => "hidden,  sys_language_uid, l18n_parent, l18n_diffsource, Titre, TypePublication, EstEditeur, EstInternationale, EstInvite, EstUnChapitre, EstDeLaVulgarisation, Annee, Pages, EstParu, TauxSelection, MediaDePublication, ISBN, Notes, PublisherOrSchool, Volume, Serie, Numero, Edition, DateDebut, DateFin, VilleEtPays, Afficher_Themes, Afficher_Equipes, Afficher_Auteurs, Afficher_Fichiers"
+		"showRecordFieldList" => "hidden, Titre, TypePublication, EstEditeur, EstInternationale, EstInvite, EstUnChapitre, EstDeLaVulgarisation, Pages, EstParu, TauxSelection, MediaDePublication, ISBN, Notes, PublisherOrSchool, Volume, Serie, Numero, Edition, Annee, DateDebut, DateFin, VilleEtPays, Lien, Afficher_Themes, Afficher_Equipes, Afficher_Auteurs, Afficher_Fichiers"
 	),
 	"feInterface" => $TCA["tx_ligestpublications_Publication"]["feInterface"],
 	"columns" => array (
@@ -16,7 +16,7 @@ $TCA["tx_ligestpublications_Publication"] = array (
 				'default' => '0'
 			)
 		),
-		'sys_language_uid' => array (		
+		/*'sys_language_uid' => array (		
 			'exclude' => 1,
 			'label'  => 'LLL:EXT:lang/locallang_general.xml:LGL.language',
 			'config' => array (
@@ -46,7 +46,7 @@ $TCA["tx_ligestpublications_Publication"] = array (
 			'config' => array (
 				'type' => 'passthrough'
 			)
-		),
+		),*/
 		"Titre" => Array (		
 			"exclude" => 1,
 			'l10n_mode' => 'mergeIfNotBlank',
@@ -55,12 +55,12 @@ $TCA["tx_ligestpublications_Publication"] = array (
 				"type" => "input",	
 				"size" => "30",	
 				"max" => "255",	
-				"eval" => "required,trim",
+				"eval" => "trim",
 			)
 		),
 		"TypePublication" => Array (		
 			"exclude" => 1,
-			'l10n_mode' => 'mergeIfNotBlank',	
+			'l10n_display' => 'defaultAsReadonly',	
 			"label" => "LLL:EXT:li_gest_publications/locallang_db.xml:tx_ligestpublications_Publication.typepublication",		
 			"config" => Array (
 				"type" => "select",	
@@ -73,7 +73,7 @@ $TCA["tx_ligestpublications_Publication"] = array (
 		),
 		"EstEditeur" => Array (		
 			"exclude" => 1,
-			'l10n_mode' => 'mergeIfNotBlank',
+			'l10n_display' => 'defaultAsReadonly',	
 			"label" => "LLL:EXT:li_gest_publications/locallang_db.xml:tx_ligestpublications_Publication.estediteur",		
 			"config" => Array (
 				"type" => "select",
@@ -87,7 +87,7 @@ $TCA["tx_ligestpublications_Publication"] = array (
 		),
 		"EstInternationale" => Array (		
 			"exclude" => 1,
-			'l10n_mode' => 'mergeIfNotBlank',
+			'l10n_display' => 'defaultAsReadonly',	
 			"label" => "LLL:EXT:li_gest_publications/locallang_db.xml:tx_ligestpublications_Publication.estinternationale",		
 			"config" => Array (
 				"type" => "select",
@@ -101,7 +101,7 @@ $TCA["tx_ligestpublications_Publication"] = array (
 		),
 		"EstInvite" => Array (		
 			"exclude" => 1,
-			'l10n_mode' => 'mergeIfNotBlank',
+			'l10n_display' => 'defaultAsReadonly',	
 			"label" => "LLL:EXT:li_gest_publications/locallang_db.xml:tx_ligestpublications_Publication.estinvite",		
 			"config" => Array (
 				"type" => "select",
@@ -115,7 +115,7 @@ $TCA["tx_ligestpublications_Publication"] = array (
 		),
 		"EstUnChapitre" => Array (		
 			"exclude" => 1,
-			'l10n_mode' => 'mergeIfNotBlank',
+			'l10n_display' => 'defaultAsReadonly',
 			"label" => "LLL:EXT:li_gest_publications/locallang_db.xml:tx_ligestpublications_Publication.estunchapitre",		
 			"config" => Array (
 				"type" => "select",
@@ -130,7 +130,7 @@ $TCA["tx_ligestpublications_Publication"] = array (
 		),
 		"EstDeLaVulgarisation" => Array (		
 			"exclude" => 1,
-			'l10n_mode' => 'mergeIfNotBlank',
+			'l10n_display' => 'defaultAsReadonly',
 			"label" => "LLL:EXT:li_gest_publications/locallang_db.xml:tx_ligestpublications_Publication.estdelavulgarisation",		
 			"config" => Array (
 				"type" => "select",
@@ -144,18 +144,19 @@ $TCA["tx_ligestpublications_Publication"] = array (
 		),
 		"Annee" => Array (
 			"exclude" => 1,
-			'l10n_mode' => 'mergeIfNotBlank',
+			'l10n_display' => 'defaultAsReadonly',
 			"label" => "LLL:EXT:li_gest_publications/locallang_db.xml:tx_ligestpublications_Publication.annee",		
 			"config" => Array (
 				"type" => "input",
 				"size" => "10",
 				"max" => "4",
-				"eval" => "trim, int",
+				"eval" => "trim, int, tx_ligestpublications_annee",
+				//"eval" => "trim, int",
 			)
 		),
 		"Pages" => Array (
 			"exclude" => 1,
-			'l10n_mode' => 'mergeIfNotBlank',
+			'l10n_display' => 'defaultAsReadonly',
 			"label" => "LLL:EXT:li_gest_publications/locallang_db.xml:tx_ligestpublications_Publication.pages",		
 			"config" => Array (
 				"type" => "input",	
@@ -166,13 +167,14 @@ $TCA["tx_ligestpublications_Publication"] = array (
 		),
 		"EstParu" => Array (		
 			"exclude" => 1,
-			'l10n_mode' => 'mergeIfNotBlank',
+			'l10n_display' => 'defaultAsReadonly',
 			"label" => "LLL:EXT:li_gest_publications/locallang_db.xml:tx_ligestpublications_Publication.estparu",		
 			"config" => Array (
 				"type" => "select",
 				"items" => Array (
-					Array("LLL:EXT:li_gest_publications/locallang_db.xml:tx_ligestpublications_Publication.estparu.I.0", "F"),
+					Array("LLL:EXT:li_gest_publications/locallang_db.xml:tx_ligestpublications_Publication.estparu.I.0", "E"),
 					Array("LLL:EXT:li_gest_publications/locallang_db.xml:tx_ligestpublications_Publication.estparu.I.1", "V"),
+					Array("LLL:EXT:li_gest_publications/locallang_db.xml:tx_ligestpublications_Publication.estparu.I.2", "F"),
 				),
 				"size" => 1,	
 				"maxitems" => 1,
@@ -180,18 +182,18 @@ $TCA["tx_ligestpublications_Publication"] = array (
 		),
 		"TauxSelection" => Array (		
 			"exclude" => 1,
-			'l10n_mode' => 'mergeIfNotBlank',
+			'l10n_display' => 'defaultAsReadonly',
 			"label" => "LLL:EXT:li_gest_publications/locallang_db.xml:tx_ligestpublications_Publication.tauxselection",		
 			"config" => Array (
 				"type" => "input",	
 				"size" => "30",	
 				"max" => "255",	
-				"eval" => "trim",
+				"eval" => "trim, double2",
 			)
 		),
 		"MediaDePublication" => Array (		
 			"exclude" => 1,
-			'l10n_mode' => 'mergeIfNotBlank',
+			'l10n_display' => 'defaultAsReadonly',
 			"label" => "LLL:EXT:li_gest_publications/locallang_db.xml:tx_ligestpublications_Publication.mediadepublication",		
 			"config" => Array (
 				"type" => "input",	
@@ -202,7 +204,7 @@ $TCA["tx_ligestpublications_Publication"] = array (
 		),
 		"ISBN" => Array (
 			"exclude" => 1,
-			'l10n_mode' => 'mergeIfNotBlank',
+			'l10n_display' => 'defaultAsReadonly',
 			"label" => "LLL:EXT:li_gest_publications/locallang_db.xml:tx_ligestpublications_Publication.isbn",		
 			"config" => Array (
 				"type" => "input",	
@@ -223,7 +225,7 @@ $TCA["tx_ligestpublications_Publication"] = array (
 		),
 		"PublisherOrSchool" => Array (
 			"exclude" => 1,
-			'l10n_mode' => 'mergeIfNotBlank',
+			'l10n_display' => 'defaultAsReadonly',
 			"label" => "LLL:EXT:li_gest_publications/locallang_db.xml:tx_ligestpublications_Publication.publisherorschool",		
 			"config" => Array (
 				"type" => "input",	
@@ -234,7 +236,7 @@ $TCA["tx_ligestpublications_Publication"] = array (
 		),
 		"Volume" => Array (
 			"exclude" => 1,
-			'l10n_mode' => 'mergeIfNotBlank',
+			'l10n_display' => 'defaultAsReadonly',
 			"label" => "LLL:EXT:li_gest_publications/locallang_db.xml:tx_ligestpublications_Publication.volume",		
 			"config" => Array (
 				"type" => "input",	
@@ -245,7 +247,7 @@ $TCA["tx_ligestpublications_Publication"] = array (
 		),
 		"Serie" => Array (
 			"exclude" => 1,
-			'l10n_mode' => 'mergeIfNotBlank',
+			'l10n_display' => 'defaultAsReadonly',
 			"label" => "LLL:EXT:li_gest_publications/locallang_db.xml:tx_ligestpublications_Publication.serie",		
 			"config" => Array (
 				"type" => "input",	
@@ -256,7 +258,7 @@ $TCA["tx_ligestpublications_Publication"] = array (
 		),
 		"Numero" => Array (
 			"exclude" => 1,
-			'l10n_mode' => 'mergeIfNotBlank',
+			'l10n_display' => 'defaultAsReadonly',
 			"label" => "LLL:EXT:li_gest_publications/locallang_db.xml:tx_ligestpublications_Publication.numero",			"config" => Array (
 				"type" => "input",
 				"size" => "10",
@@ -266,7 +268,7 @@ $TCA["tx_ligestpublications_Publication"] = array (
 		),
 		"Edition" => Array (
 			"exclude" => 1,
-			'l10n_mode' => 'mergeIfNotBlank',
+			'l10n_display' => 'defaultAsReadonly',
 			"label" => "LLL:EXT:li_gest_publications/locallang_db.xml:tx_ligestpublications_Publication.edition",		
 			"config" => Array (
 				"type" => "input",	
@@ -277,19 +279,19 @@ $TCA["tx_ligestpublications_Publication"] = array (
 		),
 		"DateDebut" => Array (
 			"exclude" => 1,
-			'l10n_mode' => 'mergeIfNotBlank',
+			'l10n_display' => 'defaultAsReadonly',
 			"label" => "LLL:EXT:li_gest_publications/locallang_db.xml:tx_ligestpublications_Publication.datedebut",			
 			"config" => Array (
 				"type"     => "input",
 				"size"     => "10",
 				"max"      => "10",
-				"eval"     => "required,trim,tx_ligestmembrelabo_dateValide,tx_ligestmembrelabo_dateObligatoire",
+				"eval"     => "trim,tx_ligestmembrelabo_dateValide",
 				'default' => '0000-00-00'
 			)
 		),
 		"DateFin" => Array (
 			"exclude" => 1,
-			'l10n_mode' => 'mergeIfNotBlank',
+			'l10n_display' => 'defaultAsReadonly',
 			"label" => "LLL:EXT:li_gest_publications/locallang_db.xml:tx_ligestpublications_Publication.datefin",		
 			"config" => Array (
 				"type"     => "input",
@@ -301,8 +303,19 @@ $TCA["tx_ligestpublications_Publication"] = array (
 		),
 		"VilleEtPays" => Array (
 			"exclude" => 1,
-			'l10n_mode' => 'mergeIfNotBlank',
+			'l10n_display' => 'defaultAsReadonly',
 			"label" => "LLL:EXT:li_gest_publications/locallang_db.xml:tx_ligestpublications_Publication.villeetpays",		
+			"config" => Array (
+				"type" => "input",	
+				"size" => "30",	
+				"max" => "255",	
+				"eval" => "trim",
+			)
+		),
+		"Lien" => Array (
+			"exclude" => 1,
+			'l10n_mode' => 'mergeIfNotBlank',
+			"label" => "LLL:EXT:li_gest_publications/locallang_db.xml:tx_ligestpublications_Publication.Lien",		
 			"config" => Array (
 				"type" => "input",	
 				"size" => "30",	
@@ -312,6 +325,7 @@ $TCA["tx_ligestpublications_Publication"] = array (
 		),
 		"Afficher_Themes" => Array (
 			"exclude" => 1,
+			"l10n_mode" => "exclude",
 			"label" => "LLL:EXT:li_gest_publications/locallang_db.xml:tx_ligestpublications_Publication.Afficher_Themes",		
 			"config" => Array (
 				"type" => "select",
@@ -371,6 +385,7 @@ $TCA["tx_ligestpublications_Publication"] = array (
 		),
 		"Afficher_Equipes" => Array (
 			"exclude" => 1,
+			"l10n_mode" => "exclude",
 			"label" => "LLL:EXT:li_gest_publications/locallang_db.xml:tx_ligestpublications_Publication.Afficher_Equipes",		
 			"config" => Array (
 				"type" => "select",
@@ -431,6 +446,7 @@ $TCA["tx_ligestpublications_Publication"] = array (
 		),
 		"Afficher_Auteurs" => Array (
 			"exclude" => 1,
+			"l10n_mode" => "exclude",
 			"label" => "LLL:EXT:li_gest_publications/locallang_db.xml:tx_ligestpublications_Publication.Afficher_Auteurs",		
 			"config" => Array (
 				"type" => "select",
@@ -490,6 +506,7 @@ $TCA["tx_ligestpublications_Publication"] = array (
 		),
 		"Afficher_Fichiers" => Array (
 			"exclude" => 1,
+			"l10n_mode" => "exclude",
 			"label" => "LLL:EXT:li_gest_publications/locallang_db.xml:tx_ligestpublications_Publication.Afficher_Fichiers",		
 			"config" => Array (
 				"type" => "select",
@@ -548,7 +565,7 @@ $TCA["tx_ligestpublications_Publication"] = array (
 		),
 	),
 	"types" => array (
-		"0" => array("showitem" => "hidden;;1;;1-1-1, sys_language_uid, l18n_parent, l18n_diffsource, Titre,  TypePublication, EstEditeur, EstInternationale, EstInvite, EstUnChapitre, EstDeLaVulgarisation, Annee, Pages, EstParu, TauxSelection, MediaDePublication, ISBN, Notes, PublisherOrSchool, Volume, Serie, Numero, Edition, DateDebut, DateFin, VilleEtPays, Afficher_Themes, Afficher_Equipes, Afficher_Auteurs, Afficher_Fichiers")
+		"0" => array("showitem" => "hidden;;1;;1-1-1, Titre,  TypePublication, EstEditeur, EstInternationale, EstInvite, EstUnChapitre, EstDeLaVulgarisation, Pages, EstParu, TauxSelection, MediaDePublication, ISBN, Notes, PublisherOrSchool, Volume, Serie, Numero, Edition, Annee, DateDebut, DateFin, VilleEtPays, Lien, Afficher_Themes, Afficher_Equipes, Afficher_Auteurs, Afficher_Fichiers")
 	),
 	"palettes" => array (
 		"1" => array("showitem" => "")
@@ -727,7 +744,7 @@ $TCA["tx_ligestpublications_Appartenir"] = array (
 $TCA["tx_ligestpublications_Fichier"] = array (
 	"ctrl" => $TCA["tx_ligestpublications_Fichier"]["ctrl"],
 	"interface" => array (
-		"showRecordFieldList" => "hidden, idPublication, NomFichier, LienFichier"
+		"showRecordFieldList" => "hidden, idPublication, NomFichier, LienFichier, fe_group"
 	),
 	"feInterface" => $TCA["tx_ligestpublications_Fichier"]["feInterface"],
 	"columns" => array (
@@ -761,14 +778,14 @@ $TCA["tx_ligestpublications_Fichier"] = array (
 				"eval" => "trim",
 			)
 		),
-		"LienFichier" => Array (		
-			"exclude" => 1,		
-			"label" => "LLL:EXT:li_gest_publications/locallang_db.xml:tx_ligestpublications_Fichier.lienfichier",		
+		"LienFichier" => Array (
+			"exclude" => 1,
+			"label" => "LLL:EXT:li_gest_publications/locallang_db.xml:tx_ligestpublications_Fichier.lienfichier",
 			"config" => Array (
-				"type" => "input",
+				"type" => "input",	
+				"size" => "30",	
+				"max" => "255",	
 				"eval" => "trim",
-				"size" => "50",
-				"default" => "",
 				"wizards" => Array(
 					"_PADDING" => 2,
 					"_VERTICAL" => 1,
@@ -783,12 +800,48 @@ $TCA["tx_ligestpublications_Fichier"] = array (
 						),
 						"JSopenParams" => "height=300,width=500,status=0,menubar=0,scrollbars=1",
 					),
+					/*"add" => Array(
+						"type" => "popup",
+						"title" => "Create new record",
+						"notNewRecords" => 1,
+						"script" => t3lib_extMgm::extRelPath("li_gest_publications")."wizard/add_file.php",
+						"icon" => "add.gif",
+						"params" => Array(
+
+						"JSopenParams" => "height=350,width=580,status=0,menubar=0,scrollbars=1",
+					),
+					"del" => Array(
+						"title" => "Delete record",
+						"type" => "popup",
+						"notNewRecords" => 1,
+						"icon" => "clearout.gif",
+						"popup_onlyOpenIfSelected" => 1,
+						'params' => Array(
+							'table'=>'tx_ligestpublications_Theme_Publication'
+						),
+						"script" => t3lib_extMgm::extRelPath("li_gest_publications")."wizard/delete_file.php",
+						"JSopenParams" => "height=1,width=1,status=0,menubar=0,scrollbars=1",
+					),*/
 				),
+			),
+		),
+		'fe_group' => array (		
+			'exclude' => 1,
+			'label'   => 'LLL:EXT:lang/locallang_general.xml:LGL.fe_group',
+			'config'  => array (
+				'type'  => 'select',
+				'items' => array (
+					array('', 0),
+					array('LLL:EXT:lang/locallang_general.xml:LGL.hide_at_login', -1),
+					array('LLL:EXT:lang/locallang_general.xml:LGL.any_login', -2),
+					array('LLL:EXT:lang/locallang_general.xml:LGL.usergroups', '--div--')
+				),
+				'foreign_table' => 'fe_groups'
 			)
 		),
 	),
 	"types" => array (
-		"0" => array("showitem" => "hidden;;1;;1-1-1, idPublication, NomFichier, LienFichier")
+		"0" => array("showitem" => "hidden;;1;;1-1-1, idPublication, NomFichier, LienFichier, fe_group")
 	),
 	"palettes" => array (
 		"1" => array("showitem" => "")
@@ -844,7 +897,8 @@ $TCA["tx_ligestpublications_TypePublication"] = array (
 			)
 		),
 		"Code" => Array (		
-			"exclude" => 1,		
+			"exclude" => 1,	
+			'l10n_display' => 'defaultAsReadonly',
 			"label" => "LLL:EXT:li_gest_publications/locallang_db.xml:tx_ligestpublications_TypePublication.code",		
 			"config" => Array (
 				"type" => "input",	
@@ -899,6 +953,27 @@ $TCA["tx_ligestpublications_Publication_Auteur"] = array (
 				"size" => 1,
 				"minitems" => 0,
 				"maxitems" => 1,
+				"wizards" => Array(
+					"_PADDING" => 2,
+					"_VERTICAL" => 1,
+					"edit" => Array(
+						"type" => "popup",
+						"title" => "Edit",
+						"script" => "wizard_edit.php",
+						"popup_onlyOpenIfSelected" => 1,
+						"notNewRecords" => 1,
+						"icon" => "edit2.gif",
+						"JSopenParams" => "height=350,width=580,status=0,menubar=0,scrollbars=1",
+					),
+					"reload" => Array(
+						"title" => "Refresh",
+						"type" => "popup",
+						"icon" => "refresh_n.gif",
+						"notNewRecords" => 1,
+						"script" => t3lib_extMgm::extRelPath("li_gest_membre_labo")."wizard/reload.php",
+						"JSopenParams" => "height=1,width=1,status=0,menubar=0,scrollbars=1",
+					),
+				),
 			)
 		),
 		"idAuteur" => Array (		
@@ -911,6 +986,27 @@ $TCA["tx_ligestpublications_Publication_Auteur"] = array (
 				"size" => 1,
 				"minitems" => 0,
 				"maxitems" => 1,
+				"wizards" => Array(
+					"_PADDING" => 2,
+					"_VERTICAL" => 1,
+					"edit" => Array(
+						"type" => "popup",
+						"title" => "Edit",
+						"script" => "wizard_edit.php",
+						"popup_onlyOpenIfSelected" => 1,
+						"notNewRecords" => 1,
+						"icon" => "edit2.gif",
+						"JSopenParams" => "height=350,width=580,status=0,menubar=0,scrollbars=1",
+					),
+					"reload" => Array(
+						"title" => "Refresh",
+						"type" => "popup",
+						"icon" => "refresh_n.gif",
+						"notNewRecords" => 1,
+						"script" => t3lib_extMgm::extRelPath("li_gest_membre_labo")."wizard/reload.php",
+						"JSopenParams" => "height=1,width=1,status=0,menubar=0,scrollbars=1",
+					),
+				),
 			)
 		),
 		"Ordre" => Array (		
@@ -937,7 +1033,7 @@ $TCA["tx_ligestpublications_Publication_Auteur"] = array (
 $TCA["tx_ligestpublications_Auteur"] = array (
 	"ctrl" => $TCA["tx_ligestpublications_Auteur"]["ctrl"],
 	"interface" => array (
-		"showRecordFieldList" => "hidden, Nom, Prenom, idMembreLabo"
+		"showRecordFieldList" => "hidden, Nom, Prenom, idMembreLabo, Afficher_Publications"
 	),
 	"feInterface" => $TCA["tx_ligestpublications_Auteur"]["feInterface"],
 	"columns" => array (
@@ -981,9 +1077,68 @@ $TCA["tx_ligestpublications_Auteur"] = array (
 				"maxitems" => 1,
 			)
 		),
+		"Afficher_Publications" => Array (
+			"exclude" => 1,
+			"label" => "LLL:EXT:li_gest_publications/locallang_db.xml:tx_ligestpublications_Publication.Afficher_Publications",		
+			"config" => Array (
+				"type" => "select",
+				"foreign_table" => "tx_ligestpublications_Publication_Auteur",	
+				"foreign_table_where" => "AND tx_ligestpublications_Publication_Auteur.idAuteur=###THIS_UID### ORDER BY tx_ligestpublications_Publication_Auteur.Ordre",
+				"size" => 6,
+				"minitems" => 0,
+				"maxitems" => 1,
+				"wizards" => Array(
+					"_PADDING" => 2,
+					"_VERTICAL" => 1,
+					"add" => Array(
+						"type" => "popup",
+						"title" => "Create new record",
+						"notNewRecords" => 1,
+						"script" => t3lib_extMgm::extRelPath("li_gest_membre_labo")."wizard/add.php",
+						"icon" => "add.gif",
+						"params" => Array(
+							"table"			=> "tx_ligestpublications_Publication_Auteur",
+							"champ"			=> "idAuteur",
+							"lien"			=> Array('tx_ligestpublications_Auteur')
+						),
+						"JSopenParams" => "height=350,width=580,status=0,menubar=0,scrollbars=1",
+					),
+					"edit" => Array(
+						"type" => "popup",
+						"title" => "Edit",
+						"script" => "wizard_edit.php",
+						"popup_onlyOpenIfSelected" => 1,
+						"notNewRecords" => 1,
+						"icon" => "edit2.gif",
+						"JSopenParams" => "height=350,width=580,status=0,menubar=0,scrollbars=1",
+					),
+					"del" => Array(
+						"title" => "Delete record",
+						"type" => "popup",
+						"notNewRecords" => 1,
+						"icon" => "clearout.gif",
+						"popup_onlyOpenIfSelected" => 1,
+						'params' => Array(
+							'table'=>'tx_ligestpublications_Publication_Auteur'
+						),
+						"script" => t3lib_extMgm::extRelPath("li_gest_membre_labo")."wizard/delete.php",
+						"JSopenParams" => "height=1,width=1,status=0,menubar=0,scrollbars=1",
+					),
+					"reload" => Array(
+						"title" => "Refresh",
+						"type" => "popup",
+						"icon" => "refresh_n.gif",
+						"notNewRecords" => 1,
+						"script" => t3lib_extMgm::extRelPath("li_gest_membre_labo")."wizard/reload.php",
+						"JSopenParams" => "height=1,width=1,status=0,menubar=0,scrollbars=1",
+					),
+					
+				),
+			),
+		),
 	),
 	"types" => array (
-		"0" => array("showitem" => "hidden;;1;;1-1-1, Nom, Prenom, idMembreLabo")
+		"0" => array("showitem" => "hidden;;1;;1-1-1, Nom, Prenom, idMembreLabo, Afficher_Publications")
 	),
 	"palettes" => array (
 		"1" => array("showitem" => "")

@@ -113,7 +113,7 @@
 										<config>
 											<type>select</type>
 											<foreign_table>tx_ligestpublications_Theme</foreign_table>
-											<foreign_table_where>ORDER BY tx_ligestpublications_Theme.Libelle</foreign_table_where>
+											<foreign_table_where>AND tx_ligestpublications_Theme.sys_language_uid=0 ORDER BY tx_ligestpublications_Theme.Libelle</foreign_table_where>
 											<size>10</size>
 											<minitems>0</minitems>
 											<maxitems>99</maxitems>
@@ -134,7 +134,7 @@
 										<config>
 											<type>select</type>
 											<foreign_table>tx_ligestpublications_TypePublication</foreign_table>
-											<foreign_table_where>ORDER BY tx_ligestpublications_TypePublication.Libelle</foreign_table_where>
+											<foreign_table_where>AND tx_ligestpublications_TypePublication.sys_language_uid=0 ORDER BY tx_ligestpublications_TypePublication.Libelle</foreign_table_where>
 											<size>10</size>
 											<minitems>0</minitems>
 											<maxitems>99</maxitems>
@@ -227,11 +227,11 @@
 												<items type="array">
 													<numIndex index="0" type="array">
 														<numIndex index="0">LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.typeconference.0</numIndex>
-														<numIndex index="1">Conférence normale</numIndex>
+														<numIndex index="1">Conference normale</numIndex>
 													</numIndex>
 													<numIndex index="1" type="array">
 														<numIndex index="0">LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.typeconference.1</numIndex>
-														<numIndex index="1">Invité</numIndex>
+														<numIndex index="1">Invite</numIndex>
 													</numIndex>
 													<numIndex index="2" type="array">
 														<numIndex index="0">LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.typeconference.2</numIndex>
@@ -255,14 +255,18 @@
 												<items type="array">
 													<numIndex index="0" type="array">
 														<numIndex index="0">LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.chapitre.0</numIndex>
-														<numIndex index="1">Oui</numIndex>
+														<numIndex index="1">Pas un ouvrage</numIndex>
 													</numIndex>
 													<numIndex index="1" type="array">
 														<numIndex index="0">LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.chapitre.1</numIndex>
-														<numIndex index="1">Non</numIndex>
+														<numIndex index="1">Est un chapitre</numIndex>
 													</numIndex>
 													<numIndex index="2" type="array">
 														<numIndex index="0">LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.chapitre.2</numIndex>
+														<numIndex index="1">Est un livre</numIndex>
+													</numIndex>
+													<numIndex index="3" type="array">
+														<numIndex index="0">LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.chapitre.3</numIndex>
 														<numIndex index="1">Peu importe</numIndex>
 													</numIndex>
 										         </items>
@@ -315,16 +319,24 @@
 													</numIndex>
 													<numIndex index="1" type="array">
 														<numIndex index="0">LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.parution.1</numIndex>
-														<numIndex index="1">Non</numIndex>
+														<numIndex index="1">En Cours</numIndex>
 													</numIndex>
 													<numIndex index="2" type="array">
 														<numIndex index="0">LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.parution.2</numIndex>
+														<numIndex index="1">Non</numIndex>
+													</numIndex>
+													<numIndex index="3" type="array">
+														<numIndex index="0">LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.parution.3</numIndex>
+														<numIndex index="1">Parue ou en cours de parution</numIndex>
+													</numIndex>
+													<numIndex index="4" type="array">
+														<numIndex index="0">LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.parution.4</numIndex>
 														<numIndex index="1">Peu importe</numIndex>
 													</numIndex>
 										         </items>
 										         <minitems>0</minitems>
 										         <maxitems>1</maxitems>
-												 <default>Peu importe</default>
+												 <default>Parue ou en cours de parution</default>
 										         <size>1</size>
 										</config>
 								</TCEforms>
@@ -421,280 +433,292 @@
 					<groupeaffichagedate>
 						<type>array</type>
 						<el>
-							<datenaissance>
+							<DateDebut>
 								<TCEforms>
 									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.datenaissance</label>
+									<label>LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.DateDebut</label>
 									<config>
 										<type>input</type>
 										<default>????-??-??</default>
 									</config>
 								</TCEforms>
-							</datenaissance>
-							<datearrivee>
+							</DateDebut>
+							<DateFin>
 								<TCEforms>
 									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.datearrivee</label>
+									<label>LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.DateFin</label>
 									<config>
 										<type>input</type>
 										<default>????-??-??</default>
 									</config>
 								</TCEforms>
-							</datearrivee>
-							<datesortie>
-								<TCEforms>
-									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.datesortie</label>
-									<config>
-										<type>input</type>
-										<default>????-??-??</default>
-									</config>
-								</TCEforms>
-							</datesortie>
-							<equipedatedebut>
-								<TCEforms>
-									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.equipedatedebut</label>
-									<config>
-										<type>input</type>
-										<default>????-??-??</default>
-									</config>
-								</TCEforms>
-							</equipedatedebut>
-							<equipedatefin>
-								<TCEforms>
-									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.equipedatefin</label>
-									<config>
-										<type>input</type>
-										<default>????-??-??</default>
-									</config>
-								</TCEforms>
-							</equipedatefin>
-							<categoriedatedebut>
-								<TCEforms>
-									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.categoriedatedebut</label>
-									<config>
-										<type>input</type>
-										<default>????-??-??</default>
-									</config>
-								</TCEforms>
-							</categoriedatedebut>
-							<categoriedatefin>
-								<TCEforms>
-									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.categoriedatefin</label>
-									<config>
-										<type>input</type>
-										<default>????-??-??</default>
-									</config>
-								</TCEforms>
-							</categoriedatefin>
-							<diplomedateobtention>
-								<TCEforms>
-									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.diplomedateobtention</label>
-									<config>
-										<type>input</type>
-										<default>????-??-??</default>
-									</config>
-								</TCEforms>
-							</diplomedateobtention>
-							<typepostedatedebut>
-								<TCEforms>
-									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.typepostedatedebut</label>
-									<config>
-										<type>input</type>
-										<default>????-??-??</default>
-									</config>
-								</TCEforms>
-							</typepostedatedebut>
-							<typepostedatefin>
-								<TCEforms>
-									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.typepostedatefin</label>
-									<config>
-										<type>input</type>
-										<default>????-??-??</default>
-									</config>
-								</TCEforms>
-							</typepostedatefin>
-							<fonctionstructuredatedebut>
-								<TCEforms>
-									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.fonctionstructuredatedebut</label>
-									<config>
-										<type>input</type>
-										<default>????-??-??</default>
-									</config>
-								</TCEforms>
-							</fonctionstructuredatedebut>
-							<fonctionstructuredatefin>
-								<TCEforms>
-									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.fonctionstructuredatefin</label>
-									<config>
-										<type>input</type>
-										<default>????-??-??</default>
-									</config>
-								</TCEforms>
-							</fonctionstructuredatefin>
+							</DateFin>
 						</el>
 					</groupeaffichagedate>
 					
-					<!-- Regoupement des options d'affichage concernant les rangs des membres dans une équipe -->
-					<groupeaffichagerang>
+					<!-- Regoupement des options d'affichage concernant les dates  -->
+					<groupeordreaffichage>
 						<type>array</type>
 						<el>
-							<rang1>
+							<ordretitre>
 								<TCEforms>
-									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.rang1</label>
-									<config>
-										<type>input</type>
-										<default>Responsable</default>
-									</config>
+									<label>LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.ordretitre</label>
+										<config>
+											<type>select</type>
+												<items type="array">
+													<numIndex index="0" type="array">
+														<numIndex index="0">LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.ordretitre.ASC</numIndex>
+														<numIndex index="1">ASC</numIndex>
+													</numIndex>
+													<numIndex index="1" type="array">
+														<numIndex index="0">LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.ordretitre.DESC</numIndex>
+														<numIndex index="1">DESC</numIndex>
+													</numIndex>
+										         </items>
+										         <minitems>0</minitems>
+										         <maxitems>1</maxitems>
+												 <default>ASC</default>
+										         <size>1</size>
+										</config>
 								</TCEforms>
-							</rang1>
-							<rang2>
+							</ordretitre>
+							<ordreannee>
 								<TCEforms>
-									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.rang2</label>
-									<config>
-										<type>input</type>
-										<default>Responsable adjoint</default>
-									</config>
+									<label>LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.ordreannee</label>
+										<config>
+											<type>select</type>
+												<items type="array">
+													<numIndex index="0" type="array">
+														<numIndex index="0">LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.ordreannee.ASC</numIndex>
+														<numIndex index="1">ASC</numIndex>
+													</numIndex>
+													<numIndex index="1" type="array">
+														<numIndex index="0">LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.ordreannee.DESC</numIndex>
+														<numIndex index="1">DESC</numIndex>
+													</numIndex>
+										         </items>
+										         <minitems>0</minitems>
+										         <maxitems>1</maxitems>
+												 <default>DESC</default>
+										         <size>1</size>
+										</config>
 								</TCEforms>
-							</rang2>
-							<rang0>
-								<TCEforms>
-									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.rang0</label>
-									<config>
-										<type>input</type>
-										<default>Autre</default>
-									</config>
-								</TCEforms>
-							</rang0>
+							</ordreannee>
 						</el>
-					</groupeaffichagerang>
+					</groupeordreaffichage>
 					
-					<!-- Regoupement des options d'affichage concernant les genres des membres -->
-					<groupeaffichagegenre>
+					
+					
+					
+					<!-- Regoupement des options d'affichage concernant l'affichage du nombre de pages -->
+					<groupepage>
 						<type>array</type>
 						<el>
-							<genrehomme>
+							<nbpages>
 								<TCEforms>
 									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.genre.homme</label>
+									<label>LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.nbpages</label>
 									<config>
 										<type>input</type>
-										<default>H</default>
+										<default>###Pages### p.</default>
 									</config>
 								</TCEforms>
-							</genrehomme>
-							<genrefemme>
+							</nbpages>
+							<plagepages>
 								<TCEforms>
 									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.genre.femme</label>
+									<label>LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.plagepages</label>
 									<config>
 										<type>input</type>
-										<default>F</default>
+										<default>pp. ###PageDebut###-###PageFin###</default>
 									</config>
 								</TCEforms>
-							</genrefemme>
-							<genreinconnu>
-								<TCEforms>
-									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.genre.inconnu</label>
-									<config>
-										<type>input</type>
-										<default>I</default>
-									</config>
-								</TCEforms>
-							</genreinconnu>
+							</plagepages>
 						</el>
-					</groupeaffichagegenre>
+					</groupepage>
 					
-					<!-- Regoupement des options d'affichage concernant les types de structures -->
-					<groupeaffichagetype>
+					
+					<!-- Regoupement des options d'affichage concernant l'édition de la publication -->
+					<groupeediteur>
 						<type>array</type>
 						<el>
-							<composante>
+							<NEstPasEditeur>
 								<TCEforms>
 									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.type.Composante</label>
+									<label>LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.EstEditeur.0</label>
 									<config>
 										<type>input</type>
-										<default>Composante</default>
+										<default>Non éditeur</default>
 									</config>
 								</TCEforms>
-							</composante>
-							<entreprise>
+							</NEstPasEditeur>
+							<EstEditeur>
 								<TCEforms>
 									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.type.Entreprise</label>
+									<label>LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.EstEditeur.1</label>
 									<config>
 										<type>input</type>
-										<default>Entreprise</default>
+										<default>Editeur</default>
 									</config>
 								</TCEforms>
-							</entreprise>
-							<etablissement>
-								<TCEforms>
-									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.type.Etablissement</label>
-									<config>
-										<type>input</type>
-										<default>Etablissement</default>
-									</config>
-								</TCEforms>
-							</etablissement>
-							<institution>
-								<TCEforms>
-									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.type.Institution</label>
-									<config>
-										<type>input</type>
-										<default>Institution</default>
-									</config>
-								</TCEforms>
-							</institution>
-							<laboratoirePrive>
-								<TCEforms>
-									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.type.LaboratoirePrive</label>
-									<config>
-										<type>input</type>
-										<default>Laboratoire Privé</default>
-									</config>
-								</TCEforms>
-							</laboratoirePrive>
-							<laboratoirePublic>
-								<TCEforms>
-									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.type.LaboratoirePublic</label>
-									<config>
-										<type>input</type>
-										<default>Laboratoire Public</default>
-									</config>
-								</TCEforms>
-							</laboratoirePublic>
-							<site>
-								<TCEforms>
-									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.type.Site</label>
-									<config>
-										<type>input</type>
-										<default>Site</default>
-									</config>
-								</TCEforms>
-							</site>
+							</EstEditeur>
 						</el>
-					</groupeaffichagetype>
+					</groupeediteur>
 					
+					<!-- Regoupement des options d'affichage concernant la vulgarisation ou non de la publication -->
+					<groupevulgarisation>
+						<type>array</type>
+						<el>
+							<NEstPasDeLaVulgarisation>
+								<TCEforms>
+									<exclude>1</exclude>
+									<label>LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.EstDeLaVulgarisation.0</label>
+									<config>
+										<type>input</type>
+										<default>N'est pas de la vulgarisation</default>
+									</config>
+								</TCEforms>
+							</NEstPasDeLaVulgarisation>
+							<EstDeLaVulgarisation>
+								<TCEforms>
+									<exclude>1</exclude>
+									<label>LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.EstDeLaVulgarisation.1</label>
+									<config>
+										<type>input</type>
+										<default>Vulgarisation</default>
+									</config>
+								</TCEforms>
+							</EstDeLaVulgarisation>
+						</el>
+					</groupevulgarisation>
+					
+					<!-- Regoupement des options d'affichage concernant l'internationalisation ou non de la publication -->
+					<groupeinternationale>
+						<type>array</type>
+						<el>
+							<NEstPasInternationale>
+								<TCEforms>
+									<exclude>1</exclude>
+									<label>LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.EstInternationale.0</label>
+									<config>
+										<type>input</type>
+										<default>Nationale</default>
+									</config>
+								</TCEforms>
+							</NEstPasInternationale>
+							<EstInternationale>
+								<TCEforms>
+									<exclude>1</exclude>
+									<label>LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.EstInternationale.1</label>
+									<config>
+										<type>input</type>
+										<default>Internationale</default>
+									</config>
+								</TCEforms>
+							</EstInternationale>
+						</el>
+					</groupeinternationale>
+					
+					<!-- Regoupement des options d'affichage concernant l'invitation ou non à une conférence -->
+					<groupeinvite>
+						<type>array</type>
+						<el>
+							<NEstPasInvite>
+								<TCEforms>
+									<exclude>1</exclude>
+									<label>LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.EstInvite.0</label>
+									<config>
+										<type>input</type>
+										<default>Conférence normale</default>
+									</config>
+								</TCEforms>
+							</NEstPasInvite>
+							<EstInvite>
+								<TCEforms>
+									<exclude>1</exclude>
+									<label>LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.EstInvite.1</label>
+									<config>
+										<type>input</type>
+										<default>Invité de la conférence</default>
+									</config>
+								</TCEforms>
+							</EstInvite>
+						</el>
+					</groupeinvite>
+					
+					<!-- Regoupement des options d'affichage concernant la parution de la publication -->
+					<groupeparution>
+						<type>array</type>
+						<el>
+							<NEstPasParu>
+								<TCEforms>
+									<exclude>1</exclude>
+									<label>LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.EstParu.0</label>
+									<config>
+										<type>input</type>
+										<default>Publication non parue</default>
+									</config>
+								</TCEforms>
+							</NEstPasParu>
+							<EnCoursDeParution>
+								<TCEforms>
+									<exclude>1</exclude>
+									<label>LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.EstParu.1</label>
+									<config>
+										<type>input</type>
+										<default>A paraître</default>
+									</config>
+								</TCEforms>
+							</EnCoursDeParution>
+							<EstParu>
+								<TCEforms>
+									<exclude>1</exclude>
+									<label>LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.EstParu.2</label>
+									<config>
+										<type>input</type>
+										<default></default>
+									</config>
+								</TCEforms>
+							</EstParu>
+						</el>
+					</groupeparution>
+
+					<!-- Regoupement des options d'affichage concernant le format de la publication -->
+					<groupechapitre>
+						<type>array</type>
+						<el>
+							<EstUnChapitreR>
+								<TCEforms>
+									<exclude>1</exclude>
+									<label>LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.EstUnChapitreR</label>
+									<config>
+										<type>input</type>
+										<default>N'est pas un ouvrage</default>
+									</config>
+								</TCEforms>
+							</EstUnChapitreR>
+							<EstUnChapitreV>
+								<TCEforms>
+									<exclude>1</exclude>
+									<label>LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.EstUnChapitreV</label>
+									<config>
+										<type>input</type>
+										<default>Chapitre</default>
+									</config>
+								</TCEforms>
+							</EstUnChapitreV>
+							<EstUnChapitreF>
+								<TCEforms>
+									<exclude>1</exclude>
+									<label>LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.EstUnChapitreF</label>
+									<config>
+										<type>input</type>
+										<default>Livre</default>
+									</config>
+								</TCEforms>
+							</EstUnChapitreF>
+						</el>
+					</groupechapitre>
 					
 				</el>
 			</ROOT>
@@ -703,746 +727,385 @@
 		<separateurs>
 		    <ROOT>
 				<TCEforms>
-					<sheetTitle>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.sheet_separateurs</sheetTitle>
+					<sheetTitle>LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.sheet_separateurs</sheetTitle>
 				</TCEforms>
 				<type>array</type>
 				<el>
-					<!-- Regroupement des séparateurs concernant les membres  -->
-					<groupeseparateurmembre>
+					<!-- Regroupement des séparateurs concernant les publications  -->
+					<groupeseparateurpublication>
 						<type>array</type>
 						<el>
-							<separateurNomDUsage>
+							<Annee_Separateur>
 								<TCEforms>
 									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.separateurNomDUsage</label>
+									<label>LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.Annee_Separateur</label>
 									<config>
 										<type>input</type>
 										<default>,</default>
 									</config>
 								</TCEforms>
-							</separateurNomDUsage>
-							<separateurNomMarital>
+							</Annee_Separateur>
+							<DateDebut_Separateur>
 								<TCEforms>
 									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.separateurNomMarital</label>
+									<label>LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.DateDebut_Separateur</label>
 									<config>
 										<type>input</type>
 										<default>,</default>
 									</config>
 								</TCEforms>
-							</separateurNomMarital>
-							<separateurNomPreMarital>
+							</DateDebut_Separateur>
+							<DateFin_Separateur>
 								<TCEforms>
 									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.separateurNomPreMarital</label>
+									<label>LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.DateFin_Separateur</label>
 									<config>
 										<type>input</type>
 										<default>,</default>
 									</config>
 								</TCEforms>
-							</separateurNomPreMarital>
-							<separateurPrenom>
+							</DateFin_Separateur>
+							<Edition_Separateur>
 								<TCEforms>
 									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.separateurPrenom</label>
+									<label>LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.Edition_Separateur</label>
 									<config>
 										<type>input</type>
 										<default>,</default>
 									</config>
 								</TCEforms>
-							</separateurPrenom>
-							<separateurInitialePrenom>
+							</Edition_Separateur>
+							<EstEditeur_Separateur>
 								<TCEforms>
 									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.separateurInitialePrenom</label>
+									<label>LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.EstEditeur_Separateur</label>
 									<config>
 										<type>input</type>
 										<default>,</default>
 									</config>
 								</TCEforms>
-							</separateurInitialePrenom>
-							<separateurInitialeNom>
+							</EstEditeur_Separateur>
+							<EstDeLaVulgarisation_Separateur>
 								<TCEforms>
 									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.separateurInitialeNom</label>
+									<label>LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.EstDeLaVulgarisation_Separateur</label>
 									<config>
 										<type>input</type>
 										<default>,</default>
 									</config>
 								</TCEforms>
-							</separateurInitialeNom>
-							<separateurGenre>
+							</EstDeLaVulgarisation_Separateur>
+							<EstInternationale_Separateur>
 								<TCEforms>
 									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.separateurGenre</label>
+									<label>LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.EstInternationale_Separateur</label>
 									<config>
 										<type>input</type>
 										<default>,</default>
 									</config>
 								</TCEforms>
-							</separateurGenre>
-							<separateurDateNaissance>
+							</EstInternationale_Separateur>
+							<EstInvite_Separateur>
 								<TCEforms>
 									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.separateurDateNaissance</label>
+									<label>LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.EstInvite_Separateur</label>
 									<config>
 										<type>input</type>
 										<default>,</default>
 									</config>
 								</TCEforms>
-							</separateurDateNaissance>
-							<separateurNationalite>
+							</EstInvite_Separateur>
+							<EstParu_Separateur>
 								<TCEforms>
 									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.separateurNationalite</label>
+									<label>LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.EstParu_Separateur</label>
 									<config>
 										<type>input</type>
 										<default>,</default>
 									</config>
 								</TCEforms>
-							</separateurNationalite>
-							<separateurDateArrivee>
+							</EstParu_Separateur>
+							<EstUnChapitre_Separateur>
 								<TCEforms>
 									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.separateurDateArrivee</label>
+									<label>LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.EstUnChapitre_Separateur</label>
 									<config>
 										<type>input</type>
 										<default>,</default>
 									</config>
 								</TCEforms>
-							</separateurDateArrivee>
-							<separateurDateSortie>
+							</EstUnChapitre_Separateur>
+							<ISBN_Separateur>
 								<TCEforms>
 									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.separateurDateSortie</label>
+									<label>LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.ISBN_Separateur</label>
 									<config>
 										<type>input</type>
 										<default>,</default>
 									</config>
 								</TCEforms>
-							</separateurDateSortie>
-							<separateurNumINE>
+							</ISBN_Separateur>
+							<MediaDePublication_Separateur>
 								<TCEforms>
 									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.separateurNumINE</label>
+									<label>LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.MediaDePublication_Separateur</label>
 									<config>
 										<type>input</type>
 										<default>,</default>
 									</config>
 								</TCEforms>
-							</separateurNumINE>
-							<separateurSectionCNU>
+							</MediaDePublication_Separateur>
+							<Notes_Separateur>
 								<TCEforms>
 									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.separateurSectionCNU</label>
+									<label>LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.Notes_Separateur</label>
 									<config>
 										<type>input</type>
 										<default>,</default>
 									</config>
 								</TCEforms>
-							</separateurSectionCNU>
-							<separateurCoordonneesRecherche>
+							</Notes_Separateur>
+							<Numero_Separateur>
 								<TCEforms>
 									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.separateurCoordonneesRecherche</label>
+									<label>LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.Numero_Separateur</label>
 									<config>
 										<type>input</type>
 										<default>,</default>
 									</config>
 								</TCEforms>
-							</separateurCoordonneesRecherche>
-							<separateurCoordonneesEnseignement>
+							</Numero_Separateur>
+							<Pages_Separateur>
 								<TCEforms>
 									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.separateurCoordonneesEnseignement</label>
+									<label>LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.Pages_Separateur</label>
 									<config>
 										<type>input</type>
 										<default>,</default>
 									</config>
 								</TCEforms>
-							</separateurCoordonneesEnseignement>
-							<separateurCoordonneesPersonnelles>
+							</Pages_Separateur>
+							<PublisherOrSchool_Separateur>
 								<TCEforms>
 									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.separateurCoordonneesPersonnelles</label>
+									<label>LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.PublisherOrSchool_Separateur</label>
 									<config>
 										<type>input</type>
 										<default>,</default>
 									</config>
 								</TCEforms>
-							</separateurCoordonneesPersonnelles>
-							<separateuremail>
+							</PublisherOrSchool_Separateur>
+							<Serie_Separateur>
 								<TCEforms>
 									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.separateuremail</label>
+									<label>LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.Serie_Separateur</label>
 									<config>
 										<type>input</type>
 										<default>,</default>
 									</config>
 								</TCEforms>
-							</separateuremail>
-							<separateurPageWeb>
+							</Serie_Separateur>
+							<TauxSelection_Separateur>
 								<TCEforms>
 									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.separateurPageWeb</label>
+									<label>LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.TauxSelection_Separateur</label>
 									<config>
 										<type>input</type>
 										<default>,</default>
 									</config>
 								</TCEforms>
-							</separateurPageWeb>
+							</TauxSelection_Separateur>
+							<Titre_Separateur>
+								<TCEforms>
+									<exclude>1</exclude>
+									<label>LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.Titre_Separateur</label>
+									<config>
+										<type>input</type>
+										<default>,</default>
+									</config>
+								</TCEforms>
+							</Titre_Separateur>
+							<VilleEtPays_Separateur>
+								<TCEforms>
+									<exclude>1</exclude>
+									<label>LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.VilleEtPays_Separateur</label>
+									<config>
+										<type>input</type>
+										<default>,</default>
+									</config>
+								</TCEforms>
+							</VilleEtPays_Separateur>
+							<Volume_Separateur>
+								<TCEforms>
+									<exclude>1</exclude>
+									<label>LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.Volume_Separateur</label>
+									<config>
+										<type>input</type>
+										<default>,</default>
+									</config>
+								</TCEforms>
+							</Volume_Separateur>
+							<LienDur_Separateur>
+								<TCEforms>
+									<exclude>1</exclude>
+									<label>LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.LienDur_Separateur</label>
+									<config>
+										<type>input</type>
+										<default>,</default>
+									</config>
+								</TCEforms>
+							</LienDur_Separateur>
+							<TypePublication_Libelle_Separateur>
+								<TCEforms>
+									<exclude>1</exclude>
+									<label>LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.TypePublication_Libelle_Separateur</label>
+									<config>
+										<type>input</type>
+										<default>,</default>
+									</config>
+								</TCEforms>
+							</TypePublication_Libelle_Separateur>
+							<TypePublication_Code_Separateur>
+								<TCEforms>
+									<exclude>1</exclude>
+									<label>LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.TypePublication_Code_Separateur</label>
+									<config>
+										<type>input</type>
+										<default>,</default>
+									</config>
+								</TCEforms>
+							</TypePublication_Code_Separateur>
+							
 						</el>
-					</groupeseparateurmembre>
+					</groupeseparateurpublication>
+
+					<!-- Regroupement des séparateurs concernant les auteurs  -->
+					<groupeseparateurauteurs>
+						<type>array</type>
+						<el>
+							<Auteurs_Nom_Separateur>
+								<TCEforms>
+									<exclude>1</exclude>
+									<label>LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.Auteurs_Nom_Separateur</label>
+									<config>
+										<type>input</type>
+										<default>,</default>
+									</config>
+								</TCEforms>
+							</Auteurs_Nom_Separateur>
+							<Auteurs_Prenom_Separateur>
+								<TCEforms>
+									<exclude>1</exclude>
+									<label>LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.Auteurs_Prenom_Separateur</label>
+									<config>
+										<type>input</type>
+										<default>,</default>
+									</config>
+								</TCEforms>
+							</Auteurs_Prenom_Separateur>
+							<Auteurs_InitialeNom_Separateur>
+								<TCEforms>
+									<exclude>1</exclude>
+									<label>LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.Auteurs_InitialeNom_Separateur</label>
+									<config>
+										<type>input</type>
+										<default>,</default>
+									</config>
+								</TCEforms>
+							</Auteurs_InitialeNom_Separateur>
+							<Auteurs_InitialePrenom_Separateur>
+								<TCEforms>
+									<exclude>1</exclude>
+									<label>LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.Auteurs_InitialePrenom_Separateur</label>
+									<config>
+										<type>input</type>
+										<default>,</default>
+									</config>
+								</TCEforms>
+							</Auteurs_InitialePrenom_Separateur>
+							<Auteurs_PageWeb_Separateur>
+								<TCEforms>
+									<exclude>1</exclude>
+									<label>LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.Auteurs_PageWeb_Separateur</label>
+									<config>
+										<type>input</type>
+										<default>,</default>
+									</config>
+								</TCEforms>
+							</Auteurs_PageWeb_Separateur>
+						</el>
+					</groupeseparateurauteurs>
+
+					<!-- Regroupement des séparateurs concernant les fichiers  -->
+					<groupeseparateurfichiers>
+						<type>array</type>
+						<el>
+							<Fichiers_Nom_Separateur>
+								<TCEforms>
+									<exclude>1</exclude>
+									<label>LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.Fichiers_Nom_Separateur</label>
+									<config>
+										<type>input</type>
+										<default>,</default>
+									</config>
+								</TCEforms>
+							</Fichiers_Nom_Separateur>
+							<Fichiers_LienDur_Separateur>
+								<TCEforms>
+									<exclude>1</exclude>
+									<label>LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.Fichiers_LienDur_Separateur</label>
+									<config>
+										<type>input</type>
+										<default>,</default>
+									</config>
+								</TCEforms>
+							</Fichiers_LienDur_Separateur>
+						</el>
+					</groupeseparateurfichiers>
 					
 					<!-- Regroupement des séparateurs concernant les équipes  -->
-					<groupeseparateurequipe>
+					<groupeseparateurequipes>
 						<type>array</type>
 						<el>
-							<separateurEquipeNom>
+							<Equipes_Nom_Separateur>
 								<TCEforms>
 									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.separateurEquipeNom</label>
+									<label>LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.Equipes_Nom_Separateur</label>
 									<config>
 										<type>input</type>
 										<default>,</default>
 									</config>
 								</TCEforms>
-							</separateurEquipeNom>
-							<separateurEquipeAbreviation>
+							</Equipes_Nom_Separateur>
+							<Equipes_Abreviation_Separateur>
 								<TCEforms>
 									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.separateurEquipeAbreviation</label>
+									<label>LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.Equipes_Abreviation_Separateur</label>
 									<config>
 										<type>input</type>
 										<default>,</default>
 									</config>
 								</TCEforms>
-							</separateurEquipeAbreviation>
-							<separateurEstMembreDeRang>
-								<TCEforms>
-									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.separateurEstMembreDeRang</label>
-									<config>
-										<type>input</type>
-										<default>,</default>
-									</config>
-								</TCEforms>
-							</separateurEstMembreDeRang>
-							<separateurEstMembreDateDebut>
-								<TCEforms>
-									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.separateurEstMembreDateDebut</label>
-									<config>
-										<type>input</type>
-										<default>,</default>
-									</config>
-								</TCEforms>
-							</separateurEstMembreDateDebut>
-							<separateurEstMembreDateFin>
-								<TCEforms>
-									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.separateurEstMembreDateFin</label>
-									<config>
-										<type>input</type>
-										<default>,</default>
-									</config>
-								</TCEforms>
-							</separateurEstMembreDateFin>
+							</Equipes_Abreviation_Separateur>
 						</el>
-					</groupeseparateurequipe>
-					
-					<!-- Regroupement des séparateurs concernant les dernières équipes  -->
-					<groupeseparateurequipedernier>
+					</groupeseparateurequipes>
+
+					<!-- Regroupement des séparateurs concernant les thèmes  -->
+					<groupeseparateurthemes>
 						<type>array</type>
 						<el>
-							<separateurEquipeNomdernier>
+							<Themes_Libelle_Separateur>
 								<TCEforms>
 									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.separateurEquipeNomdernier</label>
+									<label>LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.Themes_Libelle_Separateur</label>
 									<config>
 										<type>input</type>
 										<default>,</default>
 									</config>
 								</TCEforms>
-							</separateurEquipeNomdernier>
-							<separateurEquipeAbreviationdernier>
-								<TCEforms>
-									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.separateurEquipeAbreviationdernier</label>
-									<config>
-										<type>input</type>
-										<default>,</default>
-									</config>
-								</TCEforms>
-							</separateurEquipeAbreviationdernier>
-							<separateurEstMembreDeRangdernier>
-								<TCEforms>
-									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.separateurEstMembreDeRangdernier</label>
-									<config>
-										<type>input</type>
-										<default>,</default>
-									</config>
-								</TCEforms>
-							</separateurEstMembreDeRangdernier>
-							<separateurEstMembreDateDebutdernier>
-								<TCEforms>
-									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.separateurEstMembreDateDebutdernier</label>
-									<config>
-										<type>input</type>
-										<default>,</default>
-									</config>
-								</TCEforms>
-							</separateurEstMembreDateDebutdernier>
-							<separateurEstMembreDateFindernier>
-								<TCEforms>
-									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.separateurEstMembreDateFindernier</label>
-									<config>
-										<type>input</type>
-										<default>,</default>
-									</config>
-								</TCEforms>
-							</separateurEstMembreDateFindernier>
+							</Themes_Libelle_Separateur>
 						</el>
-					</groupeseparateurequipedernier>
-					
-					<!-- Regroupement des séparateurs concernant les catégories -->
-					<groupeseparateurcategorie>
-						<type>array</type>
-						<el>
-							<separateurCategorieLibelle>
-								<TCEforms>
-									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.separateurCategorieLibelle</label>
-									<config>
-										<type>input</type>
-										<default>,</default>
-									</config>
-								</TCEforms>
-							</separateurCategorieLibelle>
-							<separateurCategorieMembreDateDebut>
-								<TCEforms>
-									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.separateurCategorieMembreDateDebut</label>
-									<config>
-										<type>input</type>
-										<default>,</default>
-									</config>
-								</TCEforms>
-							</separateurCategorieMembreDateDebut>
-							<separateurCategorieMembreDateFin>
-								<TCEforms>
-									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.separateurCategorieMembreDateFin</label>
-									<config>
-										<type>input</type>
-										<default>,</default>
-									</config>
-								</TCEforms>
-							</separateurCategorieMembreDateFin>
-						</el>
-					</groupeseparateurcategorie>
-					
-					<!-- Regroupement des séparateurs concernant les dernières catégories -->
-					<groupeseparateurcategoriedernier>
-						<type>array</type>
-						<el>
-							<separateurCategorieLibelledernier>
-								<TCEforms>
-									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.separateurCategorieLibelledernier</label>
-									<config>
-										<type>input</type>
-										<default>,</default>
-									</config>
-								</TCEforms>
-							</separateurCategorieLibelledernier>
-							<separateurCategorieMembreDateDebutdernier>
-								<TCEforms>
-									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.separateurCategorieMembreDateDebutdernier</label>
-									<config>
-										<type>input</type>
-										<default>,</default>
-									</config>
-								</TCEforms>
-							</separateurCategorieMembreDateDebutdernier>
-							<separateurCategorieMembreDateFindernier>
-								<TCEforms>
-									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.separateurCategorieMembreDateFindernier</label>
-									<config>
-										<type>input</type>
-										<default>,</default>
-									</config>
-								</TCEforms>
-							</separateurCategorieMembreDateFindernier>
-						</el>
-					</groupeseparateurcategoriedernier>
-					
-					<!-- Regroupement des séparateurs concernant les diplomes -->
-					<groupeseparateurdiplome>
-						<type>array</type>
-						<el>
-							<separateurDiplomesLibelle>
-								<TCEforms>
-									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.separateurDiplomesLibelle</label>
-									<config>
-										<type>input</type>
-										<default>,</default>
-									</config>
-								</TCEforms>
-							</separateurDiplomesLibelle>
-							<separateurDiplomesCode>
-								<TCEforms>
-									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.separateurDiplomesCode</label>
-									<config>
-										<type>input</type>
-										<default>,</default>
-									</config>
-								</TCEforms>
-							</separateurDiplomesCode>
-							<separateurDiplomesDateObtention>
-								<TCEforms>
-									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.separateurDiplomesDateObtention</label>
-									<config>
-										<type>input</type>
-										<default>,</default>
-									</config>
-								</TCEforms>
-							</separateurDiplomesDateObtention>
-							<separateurDiplomesIntitule>
-								<TCEforms>
-									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.separateurDiplomesIntitule</label>
-									<config>
-										<type>input</type>
-										<default>,</default>
-									</config>
-								</TCEforms>
-							</separateurDiplomesIntitule>
-							<separateurDiplomesLieuDObtention>
-								<TCEforms>
-									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.separateurDiplomesLieuDObtention</label>
-									<config>
-										<type>input</type>
-										<default>,</default>
-									</config>
-								</TCEforms>
-							</separateurDiplomesLieuDObtention>
-						</el>
-					</groupeseparateurdiplome>
-					
-					<!-- Regroupement des séparateurs concernant les derniers diplomes -->
-					<groupeseparateurdiplomedernier>
-						<type>array</type>
-						<el>
-							<separateurDiplomesLibelledernier>
-								<TCEforms>
-									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.separateurDiplomesLibelledernier</label>
-									<config>
-										<type>input</type>
-										<default>,</default>
-									</config>
-								</TCEforms>
-							</separateurDiplomesLibelledernier>
-							<separateurDiplomesCodedernier>
-								<TCEforms>
-									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.separateurDiplomesCodedernier</label>
-									<config>
-										<type>input</type>
-										<default>,</default>
-									</config>
-								</TCEforms>
-							</separateurDiplomesCodedernier>
-							<separateurDiplomesDateObtentiondernier>
-								<TCEforms>
-									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.separateurDiplomesDateObtentiondernier</label>
-									<config>
-										<type>input</type>
-										<default>,</default>
-									</config>
-								</TCEforms>
-							</separateurDiplomesDateObtentiondernier>
-							<separateurDiplomesIntituledernier>
-								<TCEforms>
-									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.separateurDiplomesIntituledernier</label>
-									<config>
-										<type>input</type>
-										<default>,</default>
-									</config>
-								</TCEforms>
-							</separateurDiplomesIntituledernier>
-							<separateurDiplomesLieuDObtentiondernier>
-								<TCEforms>
-									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.separateurDiplomesLieuDObtentiondernier</label>
-									<config>
-										<type>input</type>
-										<default>,</default>
-									</config>
-								</TCEforms>
-							</separateurDiplomesLieuDObtentiondernier>
-						</el>
-					</groupeseparateurdiplomedernier>
-					
-					<!-- Regroupement des séparateurs concernant les postes -->
-					<groupeseparateurposte>
-						<type>array</type>
-						<el>
-							<separateurPostesLibelleWeb>
-								<TCEforms>
-									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.separateurPostesLibelleWeb</label>
-									<config>
-										<type>input</type>
-										<default>,</default>
-									</config>
-								</TCEforms>
-							</separateurPostesLibelleWeb>
-							<separateurPostesLibelle>
-								<TCEforms>
-									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.separateurPostesLibelle</label>
-									<config>
-										<type>input</type>
-										<default>,</default>
-									</config>
-								</TCEforms>
-							</separateurPostesLibelle>
-							<separateurPostesDateDebut>
-								<TCEforms>
-									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.separateurPostesDateDebut</label>
-									<config>
-										<type>input</type>
-										<default>,</default>
-									</config>
-								</TCEforms>
-							</separateurPostesDateDebut>
-							<separateurPostesDateFin>
-								<TCEforms>
-									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.separateurPostesDateFin</label>
-									<config>
-										<type>input</type>
-										<default>,</default>
-									</config>
-								</TCEforms>
-							</separateurPostesDateFin>
-						</el>
-					</groupeseparateurposte>
-					
-					<!-- Regroupement des séparateurs concernant les derniers postes -->
-					<groupeseparateurpostedernier>
-						<type>array</type>
-						<el>
-							<separateurPostesLibelleWebdernier>
-								<TCEforms>
-									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.separateurPostesLibelleWebdernier</label>
-									<config>
-										<type>input</type>
-										<default>,</default>
-									</config>
-								</TCEforms>
-							</separateurPostesLibelleWebdernier>
-							<separateurPostesLibelledernier>
-								<TCEforms>
-									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.separateurPostesLibelledernier</label>
-									<config>
-										<type>input</type>
-										<default>,</default>
-									</config>
-								</TCEforms>
-							</separateurPostesLibelledernier>
-							<separateurPostesDateDebutdernier>
-								<TCEforms>
-									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.separateurPostesDateDebutdernier</label>
-									<config>
-										<type>input</type>
-										<default>,</default>
-									</config>
-								</TCEforms>
-							</separateurPostesDateDebutdernier>
-							<separateurPostesDateFindernier>
-								<TCEforms>
-									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.separateurPostesDateFindernier</label>
-									<config>
-										<type>input</type>
-										<default>,</default>
-									</config>
-								</TCEforms>
-							</separateurPostesDateFindernier>
-						</el>
-					</groupeseparateurpostedernier>
-					
-					<!-- Regroupement des séparateurs concernant les fonctions et structures -->
-					<groupeseparateurfonctionsstructures>
-						<type>array</type>
-						<el>
-							<separateurFonctionsLibelle>
-								<TCEforms>
-									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.separateurFonctionsLibelle</label>
-									<config>
-										<type>input</type>
-										<default>,</default>
-									</config>
-								</TCEforms>
-							</separateurFonctionsLibelle>
-							<separateurStructuresLibelleDesSaisies>
-								<TCEforms>
-									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.separateurStructuresLibelleDesSaisies</label>
-									<config>
-										<type>input</type>
-										<default>,</default>
-									</config>
-								</TCEforms>
-							</separateurStructuresLibelleDesSaisies>
-							<separateurStructuresNom>
-								<TCEforms>
-									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.separateurStructuresNom</label>
-									<config>
-										<type>input</type>
-										<default>,</default>
-									</config>
-								</TCEforms>
-							</separateurStructuresNom>
-							<separateurStructuresAdresse>
-								<TCEforms>
-									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.separateurStructuresAdresse</label>
-									<config>
-										<type>input</type>
-										<default>,</default>
-									</config>
-								</TCEforms>
-							</separateurStructuresAdresse>
-							<separateurStructuresType>
-								<TCEforms>
-									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.separateurStructuresType</label>
-									<config>
-										<type>input</type>
-										<default>,</default>
-									</config>
-								</TCEforms>
-							</separateurStructuresType>
-							<separateurFonctionsStructuresDateDebut>
-								<TCEforms>
-									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.separateurFonctionsStructuresDateDebut</label>
-									<config>
-										<type>input</type>
-										<default>,</default>
-									</config>
-								</TCEforms>
-							</separateurFonctionsStructuresDateDebut>
-							<separateurFonctionsStructuresDateFin>
-								<TCEforms>
-									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.separateurFonctionsStructuresDateFin</label>
-									<config>
-										<type>input</type>
-										<default>,</default>
-									</config>
-								</TCEforms>
-							</separateurFonctionsStructuresDateFin>
-						</el>
-					</groupeseparateurfonctionsstructures>
-					
-					<!-- Regroupement des séparateurs concernant les dernières fonctions et structures -->
-					<groupeseparateurfonctionsstructuresdernier>
-						<type>array</type>
-						<el>
-							<separateurFonctionsLibelledernier>
-								<TCEforms>
-									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.separateurFonctionsLibelledernier</label>
-									<config>
-										<type>input</type>
-										<default>,</default>
-									</config>
-								</TCEforms>
-							</separateurFonctionsLibelledernier>
-							<separateurStructuresLibelleDesSaisiesdernier>
-								<TCEforms>
-									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.separateurStructuresLibelleDesSaisiesdernier</label>
-									<config>
-										<type>input</type>
-										<default>,</default>
-									</config>
-								</TCEforms>
-							</separateurStructuresLibelleDesSaisiesdernier>
-							<separateurStructuresNomdernier>
-								<TCEforms>
-									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.separateurStructuresNomdernier</label>
-									<config>
-										<type>input</type>
-										<default>,</default>
-									</config>
-								</TCEforms>
-							</separateurStructuresNomdernier>
-							<separateurStructuresAdressedernier>
-								<TCEforms>
-									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.separateurStructuresAdressedernier</label>
-									<config>
-										<type>input</type>
-										<default>,</default>
-									</config>
-								</TCEforms>
-							</separateurStructuresAdressedernier>
-							<separateurStructuresTypedernier>
-								<TCEforms>
-									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.separateurStructuresTypedernier</label>
-									<config>
-										<type>input</type>
-										<default>,</default>
-									</config>
-								</TCEforms>
-							</separateurStructuresTypedernier>
-							<separateurFonctionsStructuresDateDebutdernier>
-								<TCEforms>
-									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.separateurFonctionsStructuresDateDebutdernier</label>
-									<config>
-										<type>input</type>
-										<default>,</default>
-									</config>
-								</TCEforms>
-							</separateurFonctionsStructuresDateDebutdernier>
-							<separateurFonctionsStructuresDateFindernier>
-								<TCEforms>
-									<exclude>1</exclude>
-									<label>LLL:EXT:li_gest_membre_labo/locallang_db.xml:tt_content.pi_flexform.separateurFonctionsStructuresDateFindernier</label>
-									<config>
-										<type>input</type>
-										<default>,</default>
-									</config>
-								</TCEforms>
-							</separateurFonctionsStructuresDateFindernier>
-						</el>
-					</groupeseparateurfonctionsstructuresdernier>
+					</groupeseparateurthemes>
 				</el>
 			</ROOT>
 		</separateurs>
@@ -1530,17 +1193,6 @@
 							</config>
 						</TCEforms>
 					</limit>
-					<!-- Zone tryMemcached de la requête  -->
-					<tryMemcached>
-						<TCEforms>
-							<exclude>1</exclude>
-							<label>LLL:EXT:li_gest_publications/locallang_db.xml:tt_content.pi_flexform.tryMemcached</label>
-							<config>
-								<type>text</type>
-								<cols>70</cols>
-							</config>
-						</TCEforms>
-					</tryMemcached>
 				</el>
 			</ROOT>
 		</request>

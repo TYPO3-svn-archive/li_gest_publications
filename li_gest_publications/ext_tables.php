@@ -1,6 +1,11 @@
 <?php
 if (!defined ('TYPO3_MODE')) 	die ('Access denied.');
 
+// Classe pour la gestion des dates obligatoires dans les formulaires
+$TYPO3_CONF_VARS['SC_OPTIONS']['tce']['formevals']['tx_ligestpublications_annee'] = 'EXT:li_gest_publications/class.tx_ligestpublications_annee.php';
+
+
+
 // Ajout de champs dans le formulaire de la table tx_ligestmembrelabo_MembreDuLabo
 
 $tempColumns = Array (
@@ -83,20 +88,20 @@ $TCA["tx_ligestpublications_Publication"] = array (
 	"ctrl" => array (
 		'title'     => 'LLL:EXT:li_gest_publications/locallang_db.xml:tx_ligestpublications_Publication',		
 		'label'     => 'Titre',
-		'label_alt' => 'Titre',
+		'label_alt' => '',
 		'label_alt_force' => '1',
 		'tstamp'    => 'tstamp',
 		'crdate'    => 'crdate',
 		'cruser_id' => 'cruser_id',
 		'default_sortby' => "ORDER BY Titre, Annee",
-
+/*
 		'copyAfterDuplFields' => 'sys_language_uid',
 		'useColumnsForDefaultValues' => 'sys_language_uid',
 		'transOrigPointerField' => 'l18n_parent',
 		'transOrigDiffSourceField' => 'l18n_diffsource',
 		'languageField' => 'sys_language_uid',
 		'shadowColumnsForNewPlaceholders' => 'sys_language_uid,l18n_parent',
-
+*/
 		'delete' => 'deleted',
 		'enablecolumns' => array (
 			'disabled' => 'hidden',
@@ -105,7 +110,7 @@ $TCA["tx_ligestpublications_Publication"] = array (
 		'iconfile'          => t3lib_extMgm::extRelPath($_EXTKEY).'icon_tx_ligestpublications_Publication.gif',
 	),
 	"feInterface" => array (
-		"fe_admin_fieldList" => "hidden, sys_language_uid, l18n_parent, l18n_diffsource, TypePublication, EstEditeur, EstInternationale, EstInvite, EstUnChapitre, EstDeLaVulgarisation, Titre, Annee, Pages, EstParu, TauxSelection, MediaDePublication, ISBN, Notes, PublisherOrSchool, Volume, Serie, Numero, Edition, DateDebut, DateFin, VilleEtPays, Afficher_Themes, Afficher_Equipes, Afficher_Auteurs, Afficher_Fichiers",
+		"fe_admin_fieldList" => "hidden, TypePublication, EstEditeur, EstInternationale, EstInvite, EstUnChapitre, EstDeLaVulgarisation, Titre, Annee, Pages, EstParu, TauxSelection, MediaDePublication, ISBN, Notes, PublisherOrSchool, Volume, Serie, Numero, Edition, DateDebut, DateFin, VilleEtPays, Afficher_Themes, Afficher_Equipes, Afficher_Auteurs, Afficher_Fichiers",
 	)
 );
 
@@ -113,9 +118,9 @@ $TCA["tx_ligestpublications_Publication"] = array (
 // Paramétrage de l'affichage de listes d'enregistrement de la table tx_ligestpublications_Theme_Publication dans le backend.
 
 // allow Theme_Publication records on normal pages
-t3lib_extMgm::allowTableOnStandardPages('tx_ligestpublications_Theme_Publication');
+//t3lib_extMgm::allowTableOnStandardPages('tx_ligestpublications_Theme_Publication');
 // add the Theme_Publication record to the insert records content element
-t3lib_extMgm::addToInsertRecords('tx_ligestpublications_Theme_Publication');
+//t3lib_extMgm::addToInsertRecords('tx_ligestpublications_Theme_Publication');
 
 $TCA["tx_ligestpublications_Theme_Publication"] = array (
 	"ctrl" => array (
@@ -152,7 +157,7 @@ $TCA["tx_ligestpublications_Theme"] = array (
 	"ctrl" => array (
 		'title'     => 'LLL:EXT:li_gest_publications/locallang_db.xml:tx_ligestpublications_Theme',		
 		'label'     => 'Libelle',
-		'label_alt' => 'Libelle',
+		'label_alt' => '',
 		'label_alt_force' => '1',
 		'tstamp'    => 'tstamp',
 		'crdate'    => 'crdate',
@@ -181,16 +186,16 @@ $TCA["tx_ligestpublications_Theme"] = array (
 // Paramétrage de l'affichage de listes d'enregistrement de la table tx_ligestpublications_Appartenir dans le backend.
 
 // allow Appartenir records on normal pages
-t3lib_extMgm::allowTableOnStandardPages('tx_ligestpublications_Appartenir');
+//t3lib_extMgm::allowTableOnStandardPages('tx_ligestpublications_Appartenir');
 // add the Appartenir record to the insert records content element
-t3lib_extMgm::addToInsertRecords('tx_ligestpublications_Appartenir');
+//t3lib_extMgm::addToInsertRecords('tx_ligestpublications_Appartenir');
 
 $TCA["tx_ligestpublications_Appartenir"] = array (
 	"ctrl" => array (
 		'title'     => 'LLL:EXT:li_gest_publications/locallang_db.xml:tx_ligestpublications_Appartenir',		
 		'label'     => 'idPublication, idEquipe',
 		'label_alt' => 'idPublication, idEquipe',
-		'label_alt_force' => '1',	
+		'label_alt_force' => '1',
 		'tstamp'    => 'tstamp',
 		'crdate'    => 'crdate',
 		'cruser_id' => 'cruser_id',
@@ -247,7 +252,7 @@ $TCA["tx_ligestpublications_TypePublication"] = array (
 	"ctrl" => array (
 		'title'     => 'LLL:EXT:li_gest_publications/locallang_db.xml:tx_ligestpublications_TypePublication',		
 		'label'     => 'Libelle',
-		'label_alt' => 'Libelle',
+		'label_alt' => '',
 		'label_alt_force' => '1',
 		'tstamp'    => 'tstamp',
 		'crdate'    => 'crdate',
@@ -276,13 +281,14 @@ $TCA["tx_ligestpublications_TypePublication"] = array (
 // Paramétrage de l'affichage de listes d'enregistrement de la table tx_ligestpublications_Publication_Auteur dans le backend.
 
 // allow Publication_Auteur records on normal pages
-t3lib_extMgm::allowTableOnStandardPages('tx_ligestpublications_Publication_Auteur');
+//t3lib_extMgm::allowTableOnStandardPages('tx_ligestpublications_Publication_Auteur');
 // add the Publication_Auteur record to the insert records content element
-t3lib_extMgm::addToInsertRecords('tx_ligestpublications_Publication_Auteur');
+//t3lib_extMgm::addToInsertRecords('tx_ligestpublications_Publication_Auteur');
 
 $TCA["tx_ligestpublications_Publication_Auteur"] = array (
 	"ctrl" => array (
 		'title'     => 'LLL:EXT:li_gest_publications/locallang_db.xml:tx_ligestpublications_Publication_Auteur',		'label'     => 'idPublication, idAuteur',
+		'label' => 'idPublication, idAuteur',
 		'label_alt' => 'idPublication, idAuteur',
 		'label_alt_force' => '1',
 		'tstamp'    => 'tstamp',
@@ -329,6 +335,19 @@ $TCA["tx_ligestpublications_Auteur"] = array (
 		"fe_admin_fieldList" => "hidden, Nom, Prenom, idMembreLabo",
 	)
 );
+
+// initalize "context sensitive help" (csh)
+t3lib_extMgm::addLLrefForTCAdescr('tx_ligestmembrelabo_MembreDuLabo','EXT:li_gest_publications/csh/ligestpublications_locallang_csh_tx_ligestmembrelabo_MembreDuLabo.xml');
+t3lib_extMgm::addLLrefForTCAdescr('tx_ligestpublications_Publication','EXT:li_gest_publications/csh/ligestpublications_locallang_csh_tx_ligestpublications_Publication.xml');
+t3lib_extMgm::addLLrefForTCAdescr('tx_ligestpublications_Appartenir','EXT:li_gest_publications/csh/ligestpublications_locallang_csh_tx_ligestpublications_Appartenir.xml');
+t3lib_extMgm::addLLrefForTCAdescr('tx_ligestpublications_Auteur','EXT:li_gest_publications/csh/ligestpublications_locallang_csh_tx_ligestpublications_Auteur.xml');
+t3lib_extMgm::addLLrefForTCAdescr('tx_ligestpublications_Fichier','EXT:li_gest_publications/csh/ligestpublications_locallang_csh_tx_ligestpublications_Fichier.xml');
+t3lib_extMgm::addLLrefForTCAdescr('tx_ligestpublications_Publication_Auteur','EXT:li_gest_publications/csh/ligestpublications_locallang_csh_tx_ligestpublications_Publication_Auteur.xml');
+t3lib_extMgm::addLLrefForTCAdescr('tx_ligestpublications_Theme','EXT:li_gest_publications/csh/ligestpublications_locallang_csh_tx_ligestpublications_Theme.xml');
+t3lib_extMgm::addLLrefForTCAdescr('tx_ligestpublications_Theme_Publication','EXT:li_gest_publications/csh/ligestpublications_locallang_csh_tx_ligestpublications_Theme_Publication.xml');
+t3lib_extMgm::addLLrefForTCAdescr('tx_ligestpublications_TypePublication','EXT:li_gest_publications/csh/ligestpublications_locallang_csh_tx_ligestpublications_TypePublication.xml');
+
+
 
 
 

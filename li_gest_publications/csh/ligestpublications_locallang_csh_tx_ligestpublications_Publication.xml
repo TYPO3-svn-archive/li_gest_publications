@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<description>CSH for table tx_ligestpublications_Publication</description>
+		<type>CSH</type>
+		<csh_table>tx_ligestpublications_Publication</csh_table>
+		<fileId>EXT:li_gest_publications/csh/ligestpublications_locallang_csh_tx_ligestpublications_Publication.xml</fileId>
+		<labelContext type="array"></labelContext>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+            <label index=".description">Publication</label>
+            <label index="hidden.description">Cette option permet de cacher ou non un enregistrement.</label>
+			<label index="hidden.details">Les enregistrements cachés seront affichés sur le site.</label>
+            <label index="TypePublication.description">Type de publication.</label>
+            <label index="TypePublication.details">Chaque publication ne pas appartenir qu'à un seul type de publication.</label>
+            <label index="EstEditeur.description"></label>
+            <label index="EstEditeur.details"></label>
+            <label index="EstInternationale.description"></label>
+            <label index="EstInternationale.details"></label>
+            <label index="EstInvite.description"></label>
+            <label index="EstInvite.details"></label>
+            <label index="EstUnChapitre.description"></label>
+            <label index="EstUnChapitre.details"></label>
+            <label index="EstDeLaVulgarisation.description"></label>
+            <label index="EstDeLaVulgarisation.details"></label>
+            <label index="Titre.description"></label>
+            <label index="Titre.details"></label>
+            <label index="Annee.description"></label>
+            <label index="Annee.details"></label>
+            <label index="Pages.description"></label>
+            <label index="Pages.details"></label>
+            <label index="EstParu.description"></label>
+            <label index="EstParu.details"></label>
+            <label index="TauxSelection.description"></label>
+            <label index="TauxSelection.details"></label>
+            <label index="MediaDePublication.description"></label>
+            <label index="MediaDePublication.details"></label>
+            <label index="ISBN.description"></label>
+            <label index="ISBN.details"></label>
+            <label index="Notes.description"></label>
+            <label index="Notes.details"></label>
+            <label index="PublisherOrSchool.description"></label>
+            <label index="PublisherOrSchool.details"></label>
+            <label index="Volume.description"></label>
+            <label index="Volume.details"></label>
+            <label index="Serie.description"></label>
+            <label index="Serie.details"></label>
+            <label index="Numero.description"></label>
+            <label index="Numero.details"></label>
+            <label index="Edition.description"></label>
+            <label index="Edition.details"></label>
+            <label index="DateDebut.description"></label>
+            <label index="DateDebut.details"></label>
+            <label index="DateFin.description"></label>
+            <label index="DateFin.details"></label>
+            <label index="VilleEtPays.description"></label>
+            <label index="VilleEtPays.details"></label>
+            <label index="Lien.description"></label>
+            <label index="Lien.details"></label>
+            <label index="Afficher_Themes.description"></label>
+            <label index="Afficher_Themes.details"></label>
+            <label index="Afficher_Equipes.description"></label>
+            <label index="Afficher_Equipes.details"></label>
+            <label index="Afficher_Fichiers.description"></label>
+            <label index="Afficher_Fichiers.details"></label>
+            <label index="Afficher_Auteurs.description"></label>
+            <label index="Afficher_Auteurs.details"></label>
+		</languageKey>
+		<languageKey index="fr" type="array">
+            <label index=".description">Publication</label>
+            <label index="hidden.description">Cette option permet de cacher ou non un enregistrement.</label>
+			<label index="hidden.details">Les enregistrements cachés seront affichés sur le site.</label>
+            <label index="TypePublication.description">Type de publication.</label>
+            <label index="TypePublication.details">Chaque publication ne pas appartenir qu'à un seul type de publication.</label>
+            <label index="EstEditeur.description"></label>
+            <label index="EstEditeur.details"></label>
+            <label index="EstInternationale.description"></label>
+            <label index="EstInternationale.details"></label>
+            <label index="EstInvite.description"></label>
+            <label index="EstInvite.details"></label>
+            <label index="EstUnChapitre.description"></label>
+            <label index="EstUnChapitre.details"></label>
+            <label index="EstDeLaVulgarisation.description"></label>
+            <label index="EstDeLaVulgarisation.details"></label>
+            <label index="Titre.description"></label>
+            <label index="Titre.details"></label>
+            <label index="Annee.description"></label>
+            <label index="Annee.details"></label>
+            <label index="Pages.description"></label>
+            <label index="Pages.details"></label>
+            <label index="EstParu.description"></label>
+            <label index="EstParu.details"></label>
+            <label index="TauxSelection.description"></label>
+            <label index="TauxSelection.details"></label>
+            <label index="MediaDePublication.description"></label>
+            <label index="MediaDePublication.details"></label>
+            <label index="ISBN.description"></label>
+            <label index="ISBN.details"></label>
+            <label index="Notes.description"></label>
+            <label index="Notes.details"></label>
+            <label index="PublisherOrSchool.description"></label>
+            <label index="PublisherOrSchool.details"></label>
+            <label index="Volume.description"></label>
+            <label index="Volume.details"></label>
+            <label index="Serie.description"></label>
+            <label index="Serie.details"></label>
+            <label index="Numero.description"></label>
+            <label index="Numero.details"></label>
+            <label index="Edition.description"></label>
+            <label index="Edition.details"></label>
+            <label index="DateDebut.description"></label>
+            <label index="DateDebut.details"></label>
+            <label index="DateFin.description"></label>
+            <label index="DateFin.details"></label>
+            <label index="VilleEtPays.description"></label>
+            <label index="VilleEtPays.details"></label>
+            <label index="Lien.description"></label>
+            <label index="Lien.details"></label>
+            <label index="Afficher_Themes.description"></label>
+            <label index="Afficher_Themes.details"></label>
+            <label index="Afficher_Equipes.description"></label>
+            <label index="Afficher_Equipes.details"></label>
+            <label index="Afficher_Fichiers.description"></label>
+            <label index="Afficher_Fichiers.details"></label>
+            <label index="Afficher_Auteurs.description"></label>
+            <label index="Afficher_Auteurs.details"></label>
+		</languageKey>
+	</data>
+</T3locallang>
