@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<description>CSH for table tx_ligestpublications_Publication</description>
+		<type>CSH</type>
+		<csh_table>tx_ligestpublications_Publication</csh_table>
+		<fileId>EXT:li_gest_publications/csh/ligestpublications_locallang_csh_tx_ligestpublications_Publication.xml</fileId>
+		<labelContext type="array"></labelContext>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+            <label index=".description">Publication</label>
+            <label index="hidden.description">Cette option permet de cacher ou non un enregistrement.</label>
+			<label index="hidden.details">Les enregistrements cachés seront affichés sur le site.</label>
+            <label index="TypePublication.description">Type de publication.</label>
+            <label index="TypePublication.details">Chaque publication ne pas appartenir qu'à un seul type de publication.</label>
+            <label index="EstEditeur.description"></label>
+            <label index="EstEditeur.details"></label>
+            <label index="EstInternationale.description"></label>
+            <label index="EstInternationale.details"></label>
+            <label index="EstInvite.description"></label>
+            <label index="EstInvite.details"></label>
+            <label index="TypeContribution.description"></label>
+            <label index="TypeContribution.details"></label>
+            <label index="EstDeLaVulgarisation.description"></label>
+            <label index="EstDeLaVulgarisation.details"></label>
+            <label index="TypeDiffusion.description"></label>
+            <label index="TypeDiffusion.details"></label>
+            <label index="Titre.description"></label>
+            <label index="Titre.details"></label>
+            <label index="Annee.description"></label>
+            <label index="Annee.details"></label>
+            <label index="Pages.description"></label>
+            <label index="Pages.details"></label>
+            <label index="EstParu.description"></label>
+            <label index="EstParu.details"></label>
+            <label index="TauxAcceptation.description"></label>
+            <label index="TauxAcceptation.details"></label>
+            <label index="TitreSupport.description"></label>
+            <label index="TitreSupport.details"></label>
+            <label index="MediaDePublication.description"></label>
+            <label index="MediaDePublication.details"></label>
+            <label index="ISBN.description"></label>
+            <label index="ISBN.details"></label>
+            <label index="DOI.description"></label>
+            <label index="DOI.details"></label>
+            <label index="Notes.description"></label>
+            <label index="Notes.details"></label>
+            <label index="PublisherOrSchool.description"></label>
+            <label index="PublisherOrSchool.details"></label>
+            <label index="Volume.description"></label>
+            <label index="Volume.details"></label>
+            <label index="Serie.description"></label>
+            <label index="Serie.details"></label>
+            <label index="Numero.description"></label>
+            <label index="Numero.details"></label>
+            <label index="Edition.description"></label>
+            <label index="Edition.details"></label>
+            <label index="DateDebut.description"></label>
+            <label index="DateDebut.details"></label>
+            <label index="DateFin.description"></label>
+            <label index="DateFin.details"></label>
+            <label index="VilleEtPays.description"></label>
+            <label index="VilleEtPays.details"></label>
+            <label index="Lien.description"></label>
+            <label index="Lien.details"></label>
+            <label index="Afficher_Themes.description"></label>
+            <label index="Afficher_Themes.details"></label>
+            <label index="Afficher_Equipes.description"></label>
+            <label index="Afficher_Equipes.details"></label>
+            <label index="Afficher_Fichiers.description"></label>
+            <label index="Afficher_Fichiers.details"></label>
+            <label index="Afficher_Auteurs.description"></label>
+            <label index="Afficher_Auteurs.details"></label>
+		</languageKey>
+		<languageKey index="fr" type="array">
+             <label index=".description">Publication</label>
+            <label index="hidden.description">Cette option permet de cacher ou non un enregistrement.</label>
+			<label index="hidden.details">Les enregistrements cachés seront affichés sur le site.</label>
+            <label index="TypePublication.description">Chaque publication ne peut appartenir qu'à un seul type de publication.</label>
+            <label index="TypePublication.details">Pour ajouter un nouveau type de publication, vous devez ajouter un nouvelle enregistrement à partir du formulaire Type de publication.
+			
+			Le marqueur ###TypePublication_Libelle### permet d'afficher ce champ sur une page du site pour une publication donnée.</label>
+			<label index="EstEditeur.description">Si Oui, les auteurs sont éditeurs de la publication. Si non, ils sont exclusivement auteurs.</label>
+            <label index="EstEditeur.details">Le marqueur ###EstEditeur### permet d'afficher ce champ sur une page du site pour une publication donnée.</label>
+            <label index="EstInternationale.description">Portée de la publication.</label>
+            <label index="EstInternationale.details">Le marqueur ###EstInternationale### permet d'afficher ce champ sur une page du site pour une publication donnée.</label>
+            <label index="EstInvite.description">Conférence normale ou invité de la conférence.</label>
+            <label index="EstInvite.details">Le marqueur ###EstInvite### permet d'afficher ce champ sur une page du site pour une publication donnée.</label>
+            <label index="TypeContribution.description">Type de contribution apporté par rapport à la totalité du support.</label>
+            <label index="TypeContribution.details">Le marqueur ###TypeContribution### permet d'afficher ce champ sur une page du site pour une publication donnée.</label>
+            <label index="EstDeLaVulgarisation.description">La publication est une vulgarisation ou une publication scientifique.</label>
+            <label index="EstDeLaVulgarisation.details">Le marqueur ###EstDeLaVulgarisation### permet d'afficher ce champ sur une page du site pour une publication donnée.</label>
+            <label index="TypeDiffusion.description">Type de diffusion de la publication.</label>
+            <label index="TypeDiffusion.details">Le marqueur ###TypeDiffusion### permet d'afficher ce champ sur une page du site pour une publication donnée.</label>
+            <label index="Titre.description">Titre de la publication.</label>
+            <label index="Titre.details">Le marqueur ###Titre### permet d'afficher ce champ sur une page du site pour une publication donnée.</label>
+            <label index="Annee.description">Année de publication au format aaaa.</label>
+            <label index="Annee.details">Le marqueur ###Annee### permet d'afficher ce champ sur une page du site pour une publication donnée.</label>
+            <label index="Pages.description">Nombre de pages ou plage de pages de la publication.</label>
+            <label index="Pages.details">Ce champ contient un entier pour un nombre de page ou deux entiers séparés par un tiret pour une plage de page. Exemples: 43 ou 40-65.
+			
+			Le marqueur ###Pages### permet d'afficher ce champ sur une page du site pour une publication donnée.</label>
+            <label index="EstParu.description">La publication est parue ou en cours de publication.</label>
+            <label index="EstParu.details">Le marqueur ###EstParu### permet d'afficher ce champ sur une page du site pour une publication donnée.</label>
+            <label index="TauxAcceptation.description">Taux d'acceptation de la publication. Il est inutile de préciser le symbole de pourcentage.</label>
+            <label index="TauxAcceptation.details">Le marqueur ###TauxAcceptation### permet d'afficher ce champ sur une page du site pour une publication donnée.</label>
+            <label index="TitreSupport.description">Titre du support de la publication.</label>
+            <label index="TitreSupport.details">Le marqueur ###TitreSupport### permet d'afficher ce champ sur une page du site pour une publication donnée.</label>
+            <label index="MediaDePublication.description">Type de média utilisé pour diffuser la publication (CD-Rom,...)</label>
+            <label index="MediaDePublication.details">Le marqueur ###MediaDePublication### permet d'afficher ce champ sur une page du site pour une publication donnée.</label>
+            <label index="ISBN.description">ISBN-13 sans tiret et sans espace. Champ remplit uniquement si nécessaire.</label>
+            <label index="ISBN.details">Le marqueur ###ISBN### permet d'afficher ce champ sur une page du site pour une publication donnée.</label>
+            <label index="DOI.description">DOI de la publication.</label>
+            <label index="DOI.details">Le marqueur ###DOI### permet d'afficher ce champ sur une page du site pour une publication donnée.</label>
+            <label index="Notes.description">Note à propos de la publication.</label>
+            <label index="Notes.details">Le marqueur ###Notes### permet d'afficher ce champ sur une page du site pour une publication donnée.</label>
+            <label index="PublisherOrSchool.description">Maison d'édition (Springer, Hermes, Université de Tours,...)</label>
+            <label index="PublisherOrSchool.details">Le marqueur ###PublisherOrSchool### permet d'afficher ce champ sur une page du site pour une publication donnée.</label>
+            <label index="Volume.description">Numéro du volume.</label>
+            <label index="Volume.details">Le marqueur ###Volume### permet d'afficher ce champ sur une page du site pour une publication donnée.</label>
+            <label index="Serie.description">Numéro de série.</label>
+            <label index="Serie.details">Le marqueur ###Serie### permet d'afficher ce champ sur une page du site pour une publication donnée.</label>
+            <label index="Numero.description">Numéro de la revu.</label>
+            <label index="Numero.details">Le marqueur ###Numero### permet d'afficher ce champ sur une page du site pour une publication donnée.</label>
+            <label index="Edition.description">Numéro d'édition du support (Seconde Edition,...).</label>
+            <label index="Edition.details">Le marqueur ###Edition### permet d'afficher ce champ sur une page du site pour une publication donnée.</label>
+            <label index="DateDebut.description">Date de début de la publication.</label>
+            <label index="DateDebut.details">Le marqueur ###DateDebut### permet d'afficher ce champ sur une page du site pour une publication donnée.</label>
+            <label index="DateFin.description">Date de fin de la publication.</label>
+            <label index="DateFin.details">Le marqueur ###DateFin### permet d'afficher ce champ sur une page du site pour une publication donnée.</label>
+            <label index="VilleEtPays.description">Ville et Pays ou a eu lieu la conférence au format "Ville (Pays)".</label>
+            <label index="VilleEtPays.details">Le marqueur ###VilleEtPays### permet d'afficher ce champ sur une page du site pour une publication donnée.</label>
+            <label index="Lien.description">Lien vers une page interne ou externe au site en rapport avec la publication.</label>
+            <label index="Lien.details">Le marqueur ###LienDur### permet d'afficher ce champ sur une page du site pour une publication donnée. Pour créer un lien vers la page, vous devez utiliser la balise ###Lien###.</label>
+            <label index="Afficher_Themes.description">Cette liste permet de visualiser tous les thèmes attachés à cette publication.</label>
+            <label index="Afficher_Themes.details">Lorsque vous cliquez sur le bouton en forme de crayon, une nouvelle fenêtre s'ouvre pour vous permettre de modifier l'enregistrement sélectionné.
+
+			Lorsque vous cliquez sur le bouton "+", un nouveau formulaire s'ouvre pour vous permettre d'ajouter un thème à cette publication. Le nouvel enregistrement sera ajouté dans le même dossier que celui de l'auteur duquel vous avez appelé le formulaire.
+
+			Quelque soit l'enregistrement sélectionné dans cette boîte, cela n'a pas d'importance. En effet, même si le numéro de l'enregistrement sélectionné est enregistré dans la base de données, il n'est pas réutilisé par la suite dans l'extension.</label>
+            <label index="Afficher_Equipes.description">Cette liste permet de visualiser toutes les équipes attachées à cette publication.</label>
+            <label index="Afficher_Equipes.details">Lorsque vous cliquez sur le bouton en forme de crayon, une nouvelle fenêtre s'ouvre pour vous permettre de modifier l'enregistrement sélectionné.
+
+			Lorsque vous cliquez sur le bouton "+", un nouveau formulaire s'ouvre pour vous permettre d'ajouter une équipe à cette publication. Le nouvel enregistrement sera ajouté dans le même dossier que celui de l'auteur duquel vous avez appelé le formulaire.
+
+			Quelque soit l'enregistrement sélectionné dans cette boîte, cela n'a pas d'importance. En effet, même si le numéro de l'enregistrement sélectionné est enregistré dans la base de données, il n'est pas réutilisé par la suite dans l'extension.</label>
+            <label index="Afficher_Fichiers.description">Cette liste permet de visualiser tous les fichiers attachés à cette publication.</label>
+            <label index="Afficher_Fichiers.details">Lorsque vous cliquez sur le bouton en forme de crayon, une nouvelle fenêtre s'ouvre pour vous permettre de modifier l'enregistrement sélectionné.
+
+			Lorsque vous cliquez sur le bouton "+", un nouveau formulaire s'ouvre pour vous permettre d'ajouter un fichier à cette publication. Le nouvel enregistrement sera ajouté dans le même dossier que celui de l'auteur duquel vous avez appelé le formulaire.
+
+			Quelque soit l'enregistrement sélectionné dans cette boîte, cela n'a pas d'importance. En effet, même si le numéro de l'enregistrement sélectionné est enregistré dans la base de données, il n'est pas réutilisé par la suite dans l'extension.</label>
+            <label index="Afficher_Auteurs.description">Cette liste permet de visualiser tous les auteurs attachés à cette publication.</label>
+            <label index="Afficher_Auteurs.details">Lorsque vous cliquez sur le bouton en forme de crayon, une nouvelle fenêtre s'ouvre pour vous permettre de modifier l'enregistrement sélectionné.
+
+			Lorsque vous cliquez sur le bouton "+", un nouveau formulaire s'ouvre pour vous permettre d'ajouter un auteur à cette publication. Le nouvel enregistrement sera ajouté dans le même dossier que celui de l'auteur duquel vous avez appelé le formulaire.
+
+			Quelque soit l'enregistrement sélectionné dans cette boîte, cela n'a pas d'importance. En effet, même si le numéro de l'enregistrement sélectionné est enregistré dans la base de données, il n'est pas réutilisé par la suite dans l'extension.</label>
+		</languageKey>
+	</data>
+</T3locallang>
