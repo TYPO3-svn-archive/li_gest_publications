@@ -1047,11 +1047,13 @@ class tx_ligestpublications_pi1 extends tslib_pibase {
 				$markerArray_publications_par_titres_publications['###VilleEtPays_Separateur###'] = '';
 			}
 
-			$markerArray_publications_par_titres_publications['###Volume###'] = $row['Volume'];
+			
 			if($row['Volume']<>''){
+				$markerArray_publications_par_titres_publications['###Volume###'] = 'vol. '.$row['Volume'];
 				$markerArray_publications_par_titres_publications['###Volume_Separateur###'] = $this->lConf['Volume_Separateur'];
 			}
 			else{
+				$markerArray_publications_par_titres_publications['###Volume###'] = '';
 				$markerArray_publications_par_titres_publications['###Volume_Separateur###'] = '';
 			}
 			

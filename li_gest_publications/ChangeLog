@@ -1,3 +1,7 @@
+2009-06-10 Bruno Gallet  <gallet.bruno@gmail.com>
+
+	* Ajout de "vol. " lors de l'affichage d'un numéro de volume d'une publication
+
 2009-06-01 Bruno Gallet  <gallet.bruno@gmail.com>
 
 	* Correction dans la gestion de l'option "Tous" pour le multilangues
