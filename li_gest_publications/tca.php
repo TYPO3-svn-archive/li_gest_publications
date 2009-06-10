@@ -25,7 +25,7 @@ if($admin == "1")
 	$Appartenir = 'hidden;;1;;1-1-1, idPublication,';
 	$Fichier = 'hidden;;1;;1-1-1, idPublication,';
 	$TypePublication = 'hidden;;1;;1-1-1,';
-	$Publication_Auteur = 'hidden;;1;;1-1-1, idPublication,';
+	$Publication_Auteur = 'hidden;;1;;1-1-1,';
 	$Auteur = 'hidden;;1;;1-1-1,';
 }
 
@@ -428,7 +428,7 @@ $TCA["tx_ligestpublications_Publication"] = array (
 			"config" => Array (
 				"type" => "select",
 				"foreign_table" => "tx_ligestpublications_Theme_Publication",	
-				"foreign_table_where" => "AND tx_ligestpublications_Theme_Publication.IdPublication=###THIS_UID### ORDER BY tx_ligestpublications_Theme_Publication.uid",
+				"foreign_table_where" => "AND tx_ligestpublications_Theme_Publication.IdPublication=###THIS_UID### AND tx_ligestpublications_Theme_Publication.IdPublication!=0 ORDER BY tx_ligestpublications_Theme_Publication.uid",
 				"size" => 6,
 				"minitems" => 0,
 				"maxitems" => 1,
@@ -479,7 +479,7 @@ $TCA["tx_ligestpublications_Publication"] = array (
 			"config" => Array (
 				"type" => "select",
 				"foreign_table" => "tx_ligestpublications_Appartenir",	
-				"foreign_table_where" => "AND tx_ligestpublications_Appartenir.idPublication=###THIS_UID### ORDER BY tx_ligestpublications_Appartenir.uid",
+				"foreign_table_where" => "AND tx_ligestpublications_Appartenir.idPublication=###THIS_UID### AND tx_ligestpublications_Appartenir.idPublication!=0 ORDER BY tx_ligestpublications_Appartenir.uid",
 				"size" => 6,
 				"minitems" => 0,
 				"maxitems" => 1,
@@ -531,7 +531,7 @@ $TCA["tx_ligestpublications_Publication"] = array (
 			"config" => Array (
 				"type" => "select",
 				"foreign_table" => "tx_ligestpublications_Publication_Auteur",	
-				"foreign_table_where" => "AND tx_ligestpublications_Publication_Auteur.idPublication=###THIS_UID### ORDER BY tx_ligestpublications_Publication_Auteur.Ordre",
+				"foreign_table_where" => "AND tx_ligestpublications_Publication_Auteur.idPublication=###THIS_UID### AND tx_ligestpublications_Publication_Auteur.idPublication!=0 ORDER BY tx_ligestpublications_Publication_Auteur.Ordre",
 				"size" => 6,
 				"minitems" => 0,
 				"maxitems" => 1,
@@ -582,7 +582,7 @@ $TCA["tx_ligestpublications_Publication"] = array (
 			"config" => Array (
 				"type" => "select",
 				"foreign_table" => "tx_ligestpublications_Fichier",	
-				"foreign_table_where" => "AND tx_ligestpublications_Fichier.idPublication=###THIS_UID### ORDER BY tx_ligestpublications_Fichier.NomFichier",
+				"foreign_table_where" => "AND tx_ligestpublications_Fichier.idPublication=###THIS_UID### AND tx_ligestpublications_Fichier.idPublication!=0 ORDER BY tx_ligestpublications_Fichier.NomFichier",
 				"size" => 6,
 				"minitems" => 0,
 				"maxitems" => 1,
@@ -1079,7 +1079,7 @@ $TCA["tx_ligestpublications_Publication_Auteur"] = array (
 		),
 	),
 	"types" => array (
-		"0" => array("showitem" => $Publication_Auteur."idAuteur, Ordre")
+		"0" => array("showitem" => $Publication_Auteur." idPublication, idAuteur, Ordre")
 	),
 	"palettes" => array (
 		"1" => array("showitem" => "")
@@ -1138,9 +1138,60 @@ $TCA["tx_ligestpublications_Auteur"] = array (
 				"maxitems" => 1,
 			)
 		),
+		"Afficher_Publications" => Array (
+			"exclude" => 1,
+			"l10n_mode" => "exclude",
+			"label" => "LLL:EXT:li_gest_publications/locallang_db.xml:tx_ligestpublications_Publication.Afficher_Auteurs",		
+			"config" => Array (
+				"type" => "select",
+				"foreign_table" => "tx_ligestpublications_Publication_Auteur",	
+				"foreign_table_where" => "AND tx_ligestpublications_Publication_Auteur.idAuteur=###THIS_UID### AND tx_ligestpublications_Publication_Auteur.idAuteur!=0 ORDER BY tx_ligestpublications_Publication_Auteur.uid",
+				"size" => 6,
+				"minitems" => 0,
+				"maxitems" => 1,
+				"wizards" => Array(
+					"_PADDING" => 2,
+					"_VERTICAL" => 1,
+					"add" => Array(
+						"type" => "popup",
+						"title" => "Create new record",
+						"notNewRecords" => 1,
+						"script" => t3lib_extMgm::extRelPath("li_gest_membre_labo")."wizard/add.php",
+						"icon" => "add.gif",
+						"params" => Array(
+							"table"			=> "tx_ligestpublications_Publication_Auteur",
+							"champ"			=> "idAuteur",
+							"lien"			=> Array('tx_ligestpublications_Auteur')
+						),
+						"JSopenParams" => "height=350,width=580,status=0,menubar=0,scrollbars=1",
+					),
+					"edit" => Array(
+						"type" => "popup",
+						"title" => "Edit",
+						"script" => "wizard_edit.php",
+						"popup_onlyOpenIfSelected" => 1,
+						"notNewRecords" => 1,
+						"icon" => "edit2.gif",
+						"JSopenParams" => "height=350,width=580,status=0,menubar=0,scrollbars=1",
+					),
+					"del" => Array(
+						"title" => "Delete record",
+						"type" => "popup",
+						"notNewRecords" => 1,
+						"icon" => "clearout.gif",
+						"popup_onlyOpenIfSelected" => 1,
+						'params' => Array(
+							'table'=>'tx_ligestpublications_Publication_Auteur'
+						),
+						"script" => t3lib_extMgm::extRelPath("li_gest_membre_labo")."wizard/delete.php",
+						"JSopenParams" => "height=1,width=1,status=0,menubar=0,scrollbars=1",
+					),
+				),
+			),
+		),
 	),
 	"types" => array (
-		"0" => array("showitem" => $Auteur."Nom, Prenom, idMembreLabo")
+		"0" => array("showitem" => $Auteur."Nom, Prenom, idMembreLabo, Afficher_Publications")
 	),
 	"palettes" => array (
 		"1" => array("showitem" => "")

@@ -15,7 +15,7 @@ $tempColumns = Array (
 		"config" => Array (
 			"type" => "select",
 			"foreign_table" => "tx_ligestpublications_Auteur",	
-			"foreign_table_where" => "AND tx_ligestpublications_Auteur.idMembreLabo=###THIS_UID### ORDER BY tx_ligestpublications_Auteur.Nom",
+			"foreign_table_where" => "AND tx_ligestpublications_Auteur.idMembreLabo=###THIS_UID### AND tx_ligestpublications_Auteur.idMembreLabo!=0 ORDER BY tx_ligestpublications_Auteur.Nom",
 			"size" => 6,
 			"minitems" => 0,
 			"maxitems" => 1,
@@ -280,8 +280,8 @@ $TCA["tx_ligestpublications_TypePublication"] = array (
 $TCA["tx_ligestpublications_Publication_Auteur"] = array (
 	"ctrl" => array (
 		'title'     => 'LLL:EXT:li_gest_publications/locallang_db.xml:tx_ligestpublications_Publication_Auteur',
-		'label'     => 'idAuteur, Ordre',
-		'label_alt' => 'idAuteur, Ordre',
+		'label'     => 'idAuteur, Ordre, idPublication',
+		'label_alt' => 'idAuteur, Ordre, idPublication',
 		'label_alt_force' => '1',
 		'tstamp'    => 'tstamp',
 		'crdate'    => 'crdate',
