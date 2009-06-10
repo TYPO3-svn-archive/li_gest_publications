@@ -18,7 +18,7 @@ $tempColumns = Array (
 			"foreign_table_where" => "AND tx_ligestpublications_Auteur.idMembreLabo=###THIS_UID### AND tx_ligestpublications_Auteur.idMembreLabo!=0 ORDER BY tx_ligestpublications_Auteur.Nom",
 			"size" => 6,
 			"minitems" => 0,
-			"maxitems" => 1,
+			"maxitems" => 0,
 			"wizards" => Array(
 				"_PADDING" => 2,
 				"_VERTICAL" => 1,

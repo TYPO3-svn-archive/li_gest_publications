@@ -431,7 +431,7 @@ $TCA["tx_ligestpublications_Publication"] = array (
 				"foreign_table_where" => "AND tx_ligestpublications_Theme_Publication.IdPublication=###THIS_UID### AND tx_ligestpublications_Theme_Publication.IdPublication!=0 ORDER BY tx_ligestpublications_Theme_Publication.uid",
 				"size" => 6,
 				"minitems" => 0,
-				"maxitems" => 1,
+				"maxitems" => 0,
 				"wizards" => Array(
 					"_PADDING" => 2,
 					"_VERTICAL" => 1,
@@ -482,7 +482,7 @@ $TCA["tx_ligestpublications_Publication"] = array (
 				"foreign_table_where" => "AND tx_ligestpublications_Appartenir.idPublication=###THIS_UID### AND tx_ligestpublications_Appartenir.idPublication!=0 ORDER BY tx_ligestpublications_Appartenir.uid",
 				"size" => 6,
 				"minitems" => 0,
-				"maxitems" => 1,
+				"maxitems" => 0,
 				"wizards" => Array(
 					"_PADDING" => 2,
 					"_VERTICAL" => 1,
@@ -534,7 +534,7 @@ $TCA["tx_ligestpublications_Publication"] = array (
 				"foreign_table_where" => "AND tx_ligestpublications_Publication_Auteur.idPublication=###THIS_UID### AND tx_ligestpublications_Publication_Auteur.idPublication!=0 ORDER BY tx_ligestpublications_Publication_Auteur.Ordre",
 				"size" => 6,
 				"minitems" => 0,
-				"maxitems" => 1,
+				"maxitems" => 0,
 				"wizards" => Array(
 					"_PADDING" => 2,
 					"_VERTICAL" => 1,
@@ -585,7 +585,7 @@ $TCA["tx_ligestpublications_Publication"] = array (
 				"foreign_table_where" => "AND tx_ligestpublications_Fichier.idPublication=###THIS_UID### AND tx_ligestpublications_Fichier.idPublication!=0 ORDER BY tx_ligestpublications_Fichier.NomFichier",
 				"size" => 6,
 				"minitems" => 0,
-				"maxitems" => 1,
+				"maxitems" => 0,
 				"wizards" => Array(
 					"_PADDING" => 2,
 					"_VERTICAL" => 1,
@@ -1148,7 +1148,7 @@ $TCA["tx_ligestpublications_Auteur"] = array (
 				"foreign_table_where" => "AND tx_ligestpublications_Publication_Auteur.idAuteur=###THIS_UID### AND tx_ligestpublications_Publication_Auteur.idAuteur!=0 ORDER BY tx_ligestpublications_Publication_Auteur.uid",
 				"size" => 6,
 				"minitems" => 0,
-				"maxitems" => 1,
+				"maxitems" => 0,
 				"wizards" => Array(
 					"_PADDING" => 2,
 					"_VERTICAL" => 1,
