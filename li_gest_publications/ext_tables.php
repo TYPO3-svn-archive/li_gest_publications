@@ -50,7 +50,7 @@ $tempColumns = Array (
 					"icon" => "clearout.gif",
 					"popup_onlyOpenIfSelected" => 1,
 					'params' => Array(
-						'table'=>'tx_ligesttheses_TheseHDR',
+						'table'=>'tx_ligestpublications_Auteur',
 					),
 					"script" => t3lib_extMgm::extRelPath("li_gest_membre_labo")."wizard/delete.php",
 					"JSopenParams" => "height=1,width=1,status=0,menubar=0,scrollbars=1",
